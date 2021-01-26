@@ -31,7 +31,7 @@ function removeChildren(parent) {while (parent.firstChild) {parent.removeChild(p
  */
 var Game = {};
 
-Game.Version = 0.011;
+Game.Version = 0.014;
 
 /******************************************************************************
  * Launcher
@@ -46,4 +46,7 @@ window.onload = function() {
 	/* Do stuff with the fragment. */
 	removeChildren(e('game'));
 	e('game').appendChild(frag);
+	
+	/* Log to the console. */
+	console.log('/* Howdy. */');
 }

@@ -94,6 +94,10 @@ a:hover, a:active {
 	border-right: 1px solid rgb(31, 31, 31);
 }
 
+#topBar > #topBarVersion {
+	float: right;
+}
+
 #game {
 	position: absolute;
 	left: 0px;
@@ -112,14 +116,14 @@ a:hover, a:active {
 	text-align: center;
 }
 
-#gameLoadingShort {
+#gameLoading > #gameLoadingShort {
 	animation-name: blink;
 	animation-iteration-count: 11;
 	animation-duration: 1s;
 	animation-timing-function: ease-in-out;
 }
 
-#gameLoadingLong {
+#gameLoading > #gameLoadingLong {
 	padding-top: 7px;
 	color: rgb(223, 63, 63);
 	animation-name: appearLate;
