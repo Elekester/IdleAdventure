@@ -1,5 +1,5 @@
 var Game = {};
-Game.Version = 0.001;
+Game.Version = 0.004;
 
 /** This function returns the DOM element with the given id.
  * @param {string} str - The name of the id.
