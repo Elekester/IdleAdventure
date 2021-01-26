@@ -1,12 +1,12 @@
 /******************************************************************************
  * Welcome to main.js ('https://youtu.be/itzaF8ctR2M?t=3'), I hope you find it well commented.
- */
+ *****************************************************************************/
 
 /******************************************************************************
  * The Library of Functions
  *
  * These functions are simple and used throughout the document.
- */
+ *****************************************************************************/
 
 /**
  * This function returns the DOM element with the given id.
@@ -17,13 +17,13 @@ function e(str) {return document.getElementById(str);}
 
 /**
  * This function removes all child nodes from a given element.
- * @param {HTMLElement} parent - The element from which to remove all child nodes.
+ * @param {HTMLElement} node - The element from which to remove all child nodes.
  */
-function removeChildren(parent) {while (parent.firstChild) {parent.removeChild(parent.firstChild);}}
+function removeChildren(node) {while (node.firstChild) {node.removeChild(node.firstChild);}}
 
 /******************************************************************************
  * The Game.
- */
+ *****************************************************************************/
 
 /**
  * Idle Adventure
@@ -35,7 +35,7 @@ Game.Version = 0.014;
 
 /******************************************************************************
  * Launcher
- */
+ *****************************************************************************/
 
 window.onload = function() {
 	/* Update the topBar div. */
