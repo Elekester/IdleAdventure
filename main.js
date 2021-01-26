@@ -1,7 +1,15 @@
-var Game = {};
-Game.Version = 0.004;
+/******************************************************************************
+ * Welcome to main.js ('https://youtu.be/itzaF8ctR2M?t=3'), I hope you find it well commented.
+ */
 
-/** This function returns the DOM element with the given id.
+/******************************************************************************
+ * The Library of Functions
+ *
+ * These functions are simple and used throughout the document.
+ */
+
+/**
+ * This function returns the DOM element with the given id.
  * @param {string} str - The name of the id.
  * @returns {HTMLElement} - The element with the given id.
  */
@@ -12,6 +20,22 @@ function e(str) {return document.getElementById(str);}
  * @param {HTMLElement} parent - The element from which to remove all child nodes.
  */
 function removeChildren(parent) {while (parent.firstChild) {parent.removeChild(parent.firstChild);}}
+
+/******************************************************************************
+ * The Game.
+ */
+
+/**
+ * Idle Adventure
+ * @namespace
+ */
+var Game = {};
+
+Game.Version = 0.011;
+
+/******************************************************************************
+ * Launcher
+ */
 
 window.onload = function() {
 	/* Update the topBar div. */
