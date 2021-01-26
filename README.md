@@ -1,2 +1,2 @@
-# IdleAdventure
- Idle Adventure is a game.
+# Idle Adventure
+Idle Adventure is a game.
