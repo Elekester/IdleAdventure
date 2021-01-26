@@ -21,30 +21,6 @@ function e(str) {return document.getElementById(str);}
  */
 function removeChildren(node) {while (node.firstChild) {node.removeChild(node.firstChild);}}
 
-/**
- * This function logs a message to the console after making it rainbow colored.
- * @param {string} message - The message to be logged.
- */
-function consoleRainbow(message) {
-	var newMessage = '';
-	for (i = 0; i < message.length; i++) {
-		newMessage += '%c' + message.slice(i, i+1);
-	}
-	
-	var rainbowMessage = [newMessage];
-	for (i = 0; i < message.length; i++) {
-		if (i%7 == 0) rainbowMessage.push('color: red');
-		if (i%7 == 1) rainbowMessage.push('color: orange');
-		if (i%7 == 2) rainbowMessage.push('color: yellow');
-		if (i%7 == 3) rainbowMessage.push('color: green');
-		if (i%7 == 4) rainbowMessage.push('color: blue');
-		if (i%7 == 5) rainbowMessage.push('color: indigo');
-		if (i%7 == 6) rainbowMessage.push('color: violet');
-	}
-	
-	console.log.apply(null, rainbowMessage);
-}
-
 /******************************************************************************
  * The Game.
  *****************************************************************************/
@@ -72,5 +48,5 @@ window.onload = function() {
 	e('game').appendChild(frag);
 		
 	/* Log to the console. */
-	consoleRainbow('Howdy!');
+	console.log('Howdy!');
 }
