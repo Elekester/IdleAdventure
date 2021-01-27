@@ -1,6 +1,14 @@
 /******************************************************************************
  * Welcome to main.js ('https://youtu.be/itzaF8ctR2M?t=3'), I hope you find it well commented.
  *****************************************************************************/
+ 
+ /**
+ * Idle Adventure
+ * @namespace
+ */
+var Game = {};
+
+Game.Version = 0.023;
 
 /******************************************************************************
  * The Library of Functions
@@ -20,18 +28,6 @@ function e(str) {return document.getElementById(str);}
  * @param {HTMLElement} node - The element from which to remove all child nodes.
  */
 function removeChildren(node) {while (node.firstChild) {node.removeChild(node.firstChild);}}
-
-/******************************************************************************
- * The Game.
- *****************************************************************************/
-
-/**
- * Idle Adventure
- * @namespace
- */
-var Game = {};
-
-Game.Version = 0.023;
 
 /******************************************************************************
  * Launcher
