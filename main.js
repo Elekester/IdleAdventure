@@ -31,7 +31,7 @@ function removeChildren(node) {while (node.firstChild) {node.removeChild(node.fi
  */
 var Game = {};
 
-Game.Version = 0.014;
+Game.Version = 0.021;
 
 /******************************************************************************
  * Launcher
