@@ -1,2 +1,2 @@
 # Idle Adventure
-Idle Adventure is an open source idle game for your web browser.
+Idle Adventure is an idle/clicker game for your web browser.
