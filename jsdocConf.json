@@ -1,0 +1,10 @@
+{
+	"opts": {
+		"destination": "./jsdoc/"
+	},
+	"source": {
+		"include": ["main.js", "README.md"],
+		"includePattern": ".+\\.js(doc|x)?$",
+		"excludePattern": "(^|\\/|\\\\)_"
+	}
+}
