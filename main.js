@@ -31,7 +31,7 @@ function removeChildren(node) {while (node.firstChild) {node.removeChild(node.fi
  */
 var Game = {};
 
-Game.Version = 0.021;
+Game.Version = 0.022;
 
 /******************************************************************************
  * Launcher
@@ -47,7 +47,7 @@ Game.init = function() {
 	e('game').appendChild(frag);
 		
 	/* Log to the console. */
-	console.log('Howdy!');
+	console.log('Howdy, I hope you\'ve enjoyed my game!');
 	window.removeEventListener('load', Game.init);
 }
 
