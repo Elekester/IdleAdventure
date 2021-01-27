@@ -21,7 +21,7 @@ body {
 	touch-action: manipulation;
 	color: rgb(223, 223, 223);
 	background: rgb(31, 31, 31);
-	background-image: url("img/backgroundNoise.png"); /* 256x256 perlin noise squeezed into [29,33] */
+	background-image: url("img/backgroundNoise.png"); /* 256x256 perlin noise mapped into the interval [29,33] */
 	font-family: Arial, sans-serif;
 	font-size: 13px;
 }

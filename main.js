@@ -31,12 +31,18 @@ function removeChildren(node) {while (node.firstChild) {node.removeChild(node.fi
  */
 var Game = {};
 
-Game.Version = 0.022;
+Game.Version = 0.023;
 
 /******************************************************************************
  * Launcher
  *****************************************************************************/
 Game.init = function() {
+	/* Remove the event listener */
+	window.removeEventListener('load', Game.init);
+	
+	/* Log to the console. */
+	console.log('Howdy, I hope you\'ve enjoyed my game!');
+	
 	/* Update the topBar div. */
 	e('topBarVersion').innerText = 'v. ' + Game.Version;
 	
@@ -45,10 +51,6 @@ Game.init = function() {
 	/* Do stuff with the fragment. */
 	removeChildren(e('game'));
 	e('game').appendChild(frag);
-		
-	/* Log to the console. */
-	console.log('Howdy, I hope you\'ve enjoyed my game!');
-	window.removeEventListener('load', Game.init);
 }
 
 window.addEventListener('load', Game.init);
