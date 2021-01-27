@@ -36,8 +36,7 @@ Game.Version = 0.014;
 /******************************************************************************
  * Launcher
  *****************************************************************************/
-
-window.onload = function() {
+Game.init = function() {
 	/* Update the topBar div. */
 	e('topBarVersion').innerText = 'v. ' + Game.Version;
 	
@@ -49,4 +48,7 @@ window.onload = function() {
 		
 	/* Log to the console. */
 	console.log('Howdy!');
+	window.removeEventListener('load', Game.init);
 }
+
+window.addEventListener('load', Game.init);
