@@ -33,7 +33,7 @@ a, a:visited {
 }
 
 a:hover, a:active {
-	text-shadow:0px 0px 3px rgb(223, 223, 223);
+	text-shadow: 0px 0px 3px rgb(223, 223, 223);
 }
 
 /******************************************************************************
@@ -41,20 +41,36 @@ a:hover, a:active {
  *****************************************************************************/
  
 @keyframes appearLate {
-	0% {opacity: 0;}
-	95% {opacity: 0;}
-	100% {opacity: 1;}
+	0% {
+		opacity: 0;
+	}
+	95% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
 }
 
 @keyframes blink {
-	0% {opacity: 1;}
-	50% {opacity: 0.75;}
-	100% {opacity: 1;}
+	0% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0.75;
+	}
+	100% {
+		opacity: 1;
+	}
 }
 
 @keyframes spin {
-	from {transform: rotate(0deg);}
-	to {transform: rotate(360deg);}
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
 }
 
 
@@ -69,7 +85,7 @@ a:hover, a:active {
 }
 
 /******************************************************************************
- * By id
+ * wrapper
  *****************************************************************************/
 
 #wrapper {
@@ -82,31 +98,46 @@ a:hover, a:active {
 	bottom: 0px;
 }
 
+/******************************************************************************
+ * topBar
+ *****************************************************************************/
+
 #topBar {
 	position: absolute;
 	left: 0px;
 	top: 0px;
 	width: 100%;
-	border-bottom: 1px inset rgb(0, 0, 0);
 }
 
 #topBar > div {
-	display: inline-block;
-	float: left;
+	height: 13px;
 	padding: 7px;
 	box-shadow:0px 0px 3px 0px rgb(223, 223, 223) inset;
-	border-left: 1px solid rgb(31, 31, 31);
+}
+
+#topBar > .left {
+	float: left;
 	border-right: 1px solid rgb(31, 31, 31);
 }
 
-#topBar > #topBarVersion {
+#topBar > .right {
 	float: right;
+	border-left: 1px solid rgb(31, 31, 31);
 }
+
+#topBar > .middle {
+	width: auto;
+	overflow: hidden;
+}
+
+/******************************************************************************
+ * game
+ *****************************************************************************/
 
 #game {
 	position: absolute;
 	left: 0px;
-	top: 28px;
+	top: 27px;
 	right: 0px;
 	bottom: 0px;
 	overflow: hidden;
