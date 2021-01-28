@@ -1,0 +1,30 @@
+{
+	"docdash": {
+		"sort": true,
+		"menu": {
+			"GitHub Repo": {
+				"href": "https://github.com/Elekester/IdleAdventure",
+				"target": "_blank",
+				"class": "menu-item",
+				"id": "github_repo"
+			}
+		},
+		"meta": {
+			"title": "Idle Adventure"
+		}
+	},
+	"opts": {
+		"destination": "docs/",
+		"template": "C:/Program Files/nodejs/node_modules/npm/node_modules/docdash"
+	},
+	"source": {
+		"include": ["main.js", "README.md"]
+	},
+	"tags": {
+		"allowUnknownTags": true
+	},
+	"templates": {
+		"cleverLinks": false,
+		"monospaceLinks": false
+	}
+}
