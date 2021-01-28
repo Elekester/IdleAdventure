@@ -1,6 +1,6 @@
 {
 	"opts": {
-		"destination": "./jsdoc/"
+		"destination": "./JSDoc/"
 	},
 	"source": {
 		"include": ["main.js", "README.md"],
