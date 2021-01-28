@@ -10,7 +10,7 @@
  */
 var Game = {};
 
-Game.version = 0.032; /* This shiould roughly correspond to the number of commits to the repository on GitHub/1000. */
+Game.version = 0.044; /* This shiould roughly correspond to the number of commits to the repository on GitHub/1000. */
 Game.fps = 30;
 
 /******************************************************************************
@@ -22,7 +22,7 @@ Game.fps = 30;
 /**
  * This function returns the DOM element with the given id.
  * @param {string} str - The name of the id.
- * @returns {HTMLElement} - The element with the given id.
+ * @returns {HTMLElement} The element with the given id.
  */
 function e(str) {return document.getElementById(str);}
 
