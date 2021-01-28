@@ -27,9 +27,9 @@ function e(str) {return document.getElementById(str);}
 
 /**
  * This function removes all child nodes from a given element.
- * @param {HTMLElement} node - The element from which to remove all child nodes.
+ * @param {(HTMLElement|string)} node - The element from which to remove all child nodes.
  */
-function removeChildren(node) {while (node.firstChild) {node.removeChild(node.firstChild);}}
+function removeChildren(node) {if (typeof node === 'string') node = e(node); while (node.firstChild) node.removeChild(node.firstChild);}
 
 /******************************************************************************
  * Launcher
