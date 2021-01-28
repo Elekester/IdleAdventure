@@ -1,5 +1,5 @@
 # Idle Adventure
-[Idle Adventure](elekester.github.io/IdleAdventure/) is an idle/clicker game for your web browser.
+[Idle Adventure](https://elekester.github.io/IdleAdventure/) is an idle/clicker game for your web browser.
 
 ## Source
 * [GitHub Repository](https://github.com/Elekester/IdleAdventure)
