@@ -7,6 +7,12 @@
 				"target": "_blank",
 				"class": "menu-item",
 				"id": "github_repo"
+			},
+			"Idle Adventure": {
+				"href": "https://elekester.github.io/IdleAdventure/",
+				"target": "_blank",
+				"class": "menu-item",
+				"id": "idle_adventure"
 			}
 		},
 		"meta": {
