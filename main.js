@@ -11,7 +11,7 @@
  */
 var Game = {};
 
-Game.version = 0.058; /* This shiould roughly correspond to the number of commits to the repository on GitHub/1000. */
+Game.version = 0.059; /* This shiould roughly correspond to the number of commits to the repository on GitHub/1000. */
 Game.fps = 30;
 
 /******************************************************************************
@@ -110,7 +110,7 @@ Game.init = function() {
 	console.log('Howdy, I hope you\'ve enjoyed my game!');
 	
 	/* Update the topBar div. */
-	e('topBarVersion').innerText = 'v' + Game.version;
+	e('topBarVersion').innerText = 'v' + Game.version.toFixed(3);
 	
 	/* Recreate the game div. */
 	removeChildren('game');
