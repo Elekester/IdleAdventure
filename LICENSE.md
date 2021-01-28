@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2021 Clayton Craig
+Copyright (c) 2021-present Clayton Craig
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
