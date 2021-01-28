@@ -10,7 +10,7 @@
  */
 var Game = {};
 
-Game.version = 0.048; /* This shiould roughly correspond to the number of commits to the repository on GitHub/1000. */
+Game.version = 0.049; /* This shiould roughly correspond to the number of commits to the repository on GitHub/1000. */
 Game.fps = 30;
 
 /******************************************************************************
@@ -95,7 +95,7 @@ Game.draw = function() {
 }
 
 /******************************************************************************
- * Launcher
+ * Initializer
  *****************************************************************************/
 /**
  * This function initializes Idle Adventure by recreating the webpage, adding event listeners, and calling Game.loop().
@@ -129,6 +129,8 @@ Game.init = function() {
 	/* Initialize variables for Game.loop(). */
 	Game.frameDelay = 0;
 	Game.time = Date.now();
+	
+	/* Load save data */
 	
 	/* Start the game loop. */
 	Game.loop();
