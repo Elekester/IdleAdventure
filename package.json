@@ -1,5 +1,0 @@
-{
-	"script": {
-		"generate-docs": "node_modules/.bin/jsdoc -c jsdoc.json"
-	}
-}
