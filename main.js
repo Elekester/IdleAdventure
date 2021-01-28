@@ -4,13 +4,13 @@
  * Welcome to main.js ('https://youtu.be/itzaF8ctR2M?t=3'), I hope you find it well commented.
  *****************************************************************************/
  
- /**
+/**
  * This is Idle Adventure.
  * @namespace
  */
 var Game = {};
 
-Game.version = 0.044; /* This shiould roughly correspond to the number of commits to the repository on GitHub/1000. */
+Game.version = 0.045; /* This shiould roughly correspond to the number of commits to the repository on GitHub/1000. */
 Game.fps = 30;
 
 /******************************************************************************
@@ -28,7 +28,7 @@ function e(str) {return document.getElementById(str);}
 
 /**
  * This function removes all child nodes from a given element.
- * @param {(HTMLElement|string)} node - The element from which to remove all child nodes.
+ * @param {(HTMLElement|string)} node - The element or the id of an element, from which to remove all child nodes.
  */
 function removeChildren(node) {if (typeof node === 'string') node = e(node); while (node.firstChild) node.removeChild(node.firstChild);}
 
@@ -47,7 +47,7 @@ Game.loop = function() {
  * Launcher
  *****************************************************************************/
 /**
- * This function initializes Idle Adventure in the following way: First, it removes the 'load' event listener from window; Second, it logs to the console; Third, it updates the topBar div; Fourth, it recreates the game div; Fifth, it adds event listeners; and Finally, it loads the game and calls Game.loop().
+ * This function initializes Idle Adventure by recreating the webpage, adding event listeners, and calling Game.loop().
  * @function
  */
 Game.init = function() {
@@ -68,6 +68,7 @@ Game.init = function() {
 	
 	/* Add event listeners. */
 	
+	/* Call Game.loop(); */
 	Game.loop();
 }
 
