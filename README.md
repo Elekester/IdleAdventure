@@ -1,4 +1,7 @@
 # Idle Adventure
+
+![MIT License](https://img.shields.io/github/license/Elekester/IdleAdventure)
+
 [Idle Adventure](https://elekester.github.io/IdleAdventure/) is an idle/clicker game for your web browser.
 
 ## Source
