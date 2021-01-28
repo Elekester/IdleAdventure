@@ -82,6 +82,14 @@ a:hover, a:active {
 	font-size: 26px;
 	color: rgb(255, 255, 255);
 	text-shadow: 0px 0px 6px rgb(223, 223, 223);
+	padding-bottom: 7px;
+}
+
+.blink {
+	animation-name: blink;
+	animation-iteration-count: infinite;
+	animation-duration: 1s;
+	animation-timing-function: ease-in-out;
 }
 
 /******************************************************************************
@@ -149,20 +157,12 @@ a:hover, a:active {
 	position: absolute;
 	left: 50%;
 	transform: translate(-50%, 0);
-	max-width: 80ch;
+	max-width: 60ch;
 	padding: 7px;
 	text-align: center;
 }
 
-#gameLoading > #gameLoadingShort {
-	animation-name: blink;
-	animation-iteration-count: 11;
-	animation-duration: 1s;
-	animation-timing-function: ease-in-out;
-}
-
-#gameLoading > #gameLoadingLong {
-	padding-top: 7px;
+#gameLoadingWarning {
 	color: rgb(223, 63, 63);
 	animation-name: appearLate;
 	animation-iteration-count: 1;

@@ -10,7 +10,7 @@
  */
 var Game = {};
 
-Game.version = 0.045; /* This shiould roughly correspond to the number of commits to the repository on GitHub/1000. */
+Game.version = 0.048; /* This shiould roughly correspond to the number of commits to the repository on GitHub/1000. */
 Game.fps = 30;
 
 /******************************************************************************
@@ -32,6 +32,26 @@ function e(str) {return document.getElementById(str);}
  */
 function removeChildren(node) {if (typeof node === 'string') node = e(node); while (node.firstChild) node.removeChild(node.firstChild);}
 
+/**
+ * This function samples an array with or without replacement.
+ * @param {Array} arr - An array to sample.
+ * @param {number} [n=1] - The sample size.
+ * @param {boolean} [rep=false] - Sample with replacement (true) or without (false).
+ * @returns {Array} A random sample of arr with sample size n.
+ */
+function sample(arr, n, rep) {
+	n ??= 1;
+	rep ??= false;
+	var sample = [];
+	if (rep) {for (var i = 0; i < n; i++) {
+		sample.push(arr[Math.floor(Math.random()*arr.length)]);
+	}} else {for (var i = 0; i < n; i++) {
+		sample.push(arr[Math.floor(Math.random()*arr.length)]);
+		arr = arr.filter(item => item !== sample[i]);
+	}}
+	return sample;
+}
+
 /******************************************************************************
  * Game Loop
  *****************************************************************************/
@@ -40,7 +60,38 @@ function removeChildren(node) {if (typeof node === 'string') node = e(node); whi
  * @function
  */
 Game.loop = function() {
+	/* Perform game logic and catch up on any missed logic frames. */
+	Game.logic();
+	const now = Date.now();
+	Game.frameDelay += (now - Game.time)*Game.fps/1000 - 1;
+	for ({}; Game.frameDelay > 0; Game.frameDelay--) Game.logic();
+	Game.time = now;
+	
+	/* Draw a new frame. */
+	Game.draw();
+	
+	/* Call the loop again after one frame. */
 	setTimeout(Game.loop, 1000/Game.fps);
+}
+
+/******************************************************************************
+ * Game Logic
+ *****************************************************************************/
+/**
+ * This function performs the logic operations of the game.
+ * @function
+ */
+Game.logic = function() {
+}
+
+/******************************************************************************
+ * Game Draw
+ *****************************************************************************/
+/**
+ * This function draws the game.
+ * @function
+ */
+Game.draw = function() {
 }
 
 /******************************************************************************
@@ -61,14 +112,25 @@ Game.init = function() {
 	e('topBarVersion').innerText = 'v. ' + Game.version;
 	
 	/* Recreate the game div. */
-	var frag = document.createDocumentFragment();
-	/* Do stuff with the fragment. */
-	removeChildren(e('game'));
+	removeChildren('game');
+	var frag = document.createElement('div');
+	frag.id = 'gameLoading';
+	var div = document.createElement('div');
+	div.className = 'title';
+	div.innerText = 'Thank you!\nBut our game is in another castle!';
+	frag.appendChild(div);
+	div = document.createElement('div');
+	div.innerText = 'I\'m learning everything as I make Idle Adventure, so bear with me while I do so. Check back in a couple of weeks.'
+	frag.appendChild(div);
 	e('game').appendChild(frag);
 	
 	/* Add event listeners. */
 	
-	/* Call Game.loop(); */
+	/* Initialize variables for Game.loop(). */
+	Game.frameDelay = 0;
+	Game.time = Date.now();
+	
+	/* Start the game loop. */
 	Game.loop();
 }
 
