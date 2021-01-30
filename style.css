@@ -47,7 +47,6 @@ a:hover, a:active {
 }
 
 a:hover, a:active > img {
-	border-radius: 50%;
 	box-shadow: 0 0 3px var(--fg);
 }
 
