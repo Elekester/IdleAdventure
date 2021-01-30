@@ -11,7 +11,7 @@
  */
 var Game = {};
 
-Game.version = 0.059; /* This shiould roughly correspond to the number of commits to the repository on GitHub/1000. */
+Game.version = 0.064; /* This shiould roughly correspond to the number of commits to the repository on GitHub/1000. */
 Game.fps = 30;
 
 /******************************************************************************
@@ -135,8 +135,7 @@ Game.init = function() {
 	appendNewElement(frag, 'div', function() {
 		this.id = 'buffsAnchor';
 		for (var i = 0; i < 50; i++) {
-			var testdiv = document.createElement('div');
-			this.appendChild(testdiv);
+			appendNewElement(this, 'div');
 		}
 	});
 	
