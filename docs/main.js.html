@@ -1,0 +1,310 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Idle Adventure -  main.js</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="./build/entry.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="docsStyle.css">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+             
+                <a href="index.html">
+                    <h1 class="navbar-item">Idle Adventure Documentation</h1>
+                </a>
+            
+        </div>
+        <div class="menu">
+            
+            <div class="navigation">
+                <a
+                    href="index.html"
+                    class="link"
+                >
+                    API Documentation
+                </a>
+                
+                 
+                    
+                        <a
+                            class="link user-link "
+                            href="https://elekester.github.io/IdleAdventure/"
+                        >
+                            Idle Adventure
+                        </a>
+                    
+                        <a
+                            class="link user-link "
+                            href="https://github.com/Elekester/IdleAdventure"
+                        >
+                            GitHub Repository
+                        </a>
+                    
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+                <div class="search-wrapper">
+                    <input id="search" type="text" placeholder="Search docs..." class="input">
+                </div>
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Namespaces</h3><ul><li><a href="Game.html">Game</a></li></ul><h3>Global</h3><ul><li><a href="global.html#appendNewElement">appendNewElement</a></li><li><a href="global.html#e">e</a></li><li><a href="global.html#removeChildren">removeChildren</a></li><li><a href="global.html#sample">sample</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p>Source</p>
+                    <h1>main.js</h1>
+                </header>
+                
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/******************************************************************************
+ * Idle Adventure is copyright (c) 2021-present Clayton Craig.
+ * Idle Adventure is open-source, licensed under the MIT License. See LICENSE.md for more details.
+ *
+ * Welcome to main.js, I hope you find it well commented. I've used JSDoc where I could.
+ *****************************************************************************/
+ 
+/**
+ * @namespace
+ */
+var Game = {};
+
+/**
+ * The version number of Idle Adventure.
+ * @type {number}
+ */
+Game.version = 0.083;
+
+/**
+ * The target fps at which to run the game.
+ * @type {number}
+ */
+Game.fps = 30;
+
+/******************************************************************************
+ * Library of Functions
+ *
+ * These functions are simple and used throughout main.js.
+ *****************************************************************************/
+
+/**
+ * This function returns the DOM element with the given id.
+ * @global
+ * @param {string} str - The name of the id.
+ * @returns {HTMLElement} The element with the given id.
+ */
+function e(str) {return document.getElementById(str);}
+
+/**
+ * This function removes all child nodes from a given element.
+ * @global
+ * @param {(HTMLElement|string)} node - The element or the id of an element, from which to remove all child nodes.
+ */
+function removeChildren(node) {if (typeof node === 'string') node = e(node); while (node.firstChild) node.removeChild(node.firstChild);}
+
+/**
+ * This function samples an array with or without replacement.
+ * @global
+ * @param {Array} arr - An array to sample.
+ * @param {number} [n=1] - The sample size.
+ * @param {boolean} [rep=false] - Sample with replacement (true) or without (false).
+ * @returns {Array} A random sample of arr with sample size n.
+ */
+function sample(arr, n, rep) {
+	n ??= 1;
+	rep ??= false;
+	var sample = [];
+	if (rep) {for (var i = 0; i &lt; n; i++) {
+		sample.push(arr[Math.floor(Math.random()*arr.length)]);
+	}} else {for (var i = 0; i &lt; n; i++) {
+		sample.push(arr[Math.floor(Math.random()*arr.length)]);
+		arr = arr.filter(item => item !== sample[i]);
+	}}
+	return sample;
+}
+
+/**
+ * This function creates an HTML element and appends it to another.
+ * @global
+ * @param {HTMLElement} node - The parent node.
+ * @param {string} tagName - Specifies the type of element to be created.
+ * @param {function} callback - A function to be called after creating the element, but before appending the element. 'this' is bound to the child element in the callback.
+ * @returns {HTMLElement} The node of the appended element.
+ */
+function appendNewElement(node, tagName, callback) {
+	callback ??= function() {};
+	var elem = document.createElement(tagName);
+	callback.bind(elem)();
+	node.appendChild(elem);
+	return node.lastChild;
+}
+
+/******************************************************************************
+ * Game Loop
+ *****************************************************************************/
+/**
+ * This function performs the main loop of the game and ensures that the game's logic accounts for the actual fps.
+ * @function
+ */
+Game.loop = function() {
+	/* Perform game logic and catch up on any missed logic frames. */
+	Game.logic();
+	const now = Date.now();
+	Game.frameDelay += (now - Game.time)*Game.fps/1000 - 1;
+	for ({}; Game.frameDelay > 0; Game.frameDelay--) Game.logic();
+	Game.time = now;
+	
+	/* Draw a new frame. */
+	Game.draw();
+	
+	/* Call the loop again after one frame. */
+	setTimeout(Game.loop, 1000/Game.fps);
+}
+
+/******************************************************************************
+ * Game Logic
+ *****************************************************************************/
+/**
+ * This function performs the logic operations of the game.
+ * @function
+ */
+Game.logic = function() {
+}
+
+/******************************************************************************
+ * Game Draw
+ *****************************************************************************/
+/**
+ * This function draws the game.
+ * @function
+ */
+Game.draw = function() {
+}
+
+/******************************************************************************
+ * Initializer
+ *****************************************************************************/
+/**
+ * This function initializes Idle Adventure by recreating the webpage, adding event listeners, and calling Game.loop().
+ * @function
+ */
+Game.init = function() {
+	/* Remove the 'load' event listener from window. */
+	window.removeEventListener('load', Game.init);
+	
+	/* Logs to the console. */
+	console.log('Howdy, I hope you\'ve enjoyed my game!');
+	
+	/* Update the topBar div. */
+	e('topBarVersion').innerText = 'v' + Game.version.toFixed(3);
+	
+	/* Recreate the game div. */
+	removeChildren('game');
+	var frag = document.createDocumentFragment();
+	store = appendNewElement(frag, 'div', function() {this.id='store'; this.className = 'right';});
+	appendNewElement(store, 'div', function() {this.className = 'title'; this.textContent = 'Heroes'});
+	appendNewElement(store, 'div', function() {this.id = 'heroesStoreAnchor';});
+	field = appendNewElement(frag, 'div', function() {this.id = 'field'; this.className = 'middle';});
+	appendNewElement(field, 'div', function() {this.id = 'buffsAnchor';});
+	e('game').appendChild(frag);
+	
+	/* Test elements */
+	for (var i = 0; i &lt; 10; i++) {appendNewElement(e('heroesStoreAnchor'), 'div');};
+	for (var i = 0; i &lt; 50; i++) {appendNewElement(e('buffsAnchor'), 'div');};
+	
+	/* Add event listeners. */
+	
+	/* Initialize variables for Game.loop(). */
+	Game.frameDelay = 0;
+	Game.time = Date.now();
+	
+	/* Load save data */
+	
+	/* Start the game loop. */
+	Game.loop();
+}
+
+window.addEventListener('load', Game.init);
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+            </div>
+            
+            <footer class="footer">
+                <div class="content has-text-centered">
+                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a></p>
+                    <p class="sidebar-created-by">
+                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by 
+                        <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
+                    </p>
+                </div>
+            </footer>
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+<script src="scripts/search.js"> </script>
+
+</body>
+</html>

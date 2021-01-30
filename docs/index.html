@@ -1,115 +1,107 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <meta charset="utf-8">
-    <title>Idle Adventure Documentation</title>
-    
-    
-    
-    
-    
-    <script src="scripts/prettify/prettify.js"></script>
-    <script src="scripts/prettify/lang-css.js"></script>
-    <script src="scripts/jquery.min.js"></script>
-    <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
-    <link type="text/css" rel="stylesheet" href="styles/bootstrap.min.css">
-    <link type="text/css" rel="stylesheet" href="styles/jaguar.css">
-    
-    
-    <script>
-    var config = {"monospaceLinks":false,"cleverLinks":false,"applicationName":"Idle Adventure","meta":{"title":"Idle Adventure Documentation"},"linenums":true,"default":{}};
-    </script>
-    
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Idle Adventure -  Home</title>
 
-    
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="./build/entry.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="docsStyle.css">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
 </head>
-<body>
-<div id="wrap" class="clearfix">
-    
-<div class="navigation">
-    <h3 class="applicationName"><a href="index.html">Idle Adventure</a></h3>
 
-    <div class="search">
-        <input id="search" type="text" class="form-control input-sm" placeholder="Search Documentations">
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+             
+                <a href="index.html">
+                    <h1 class="navbar-item">Idle Adventure Documentation</h1>
+                </a>
+            
+        </div>
+        <div class="menu">
+            
+            <div class="navigation">
+                <a
+                    href="index.html"
+                    class="link"
+                >
+                    API Documentation
+                </a>
+                
+                 
+                    
+                        <a
+                            class="link user-link "
+                            href="https://elekester.github.io/IdleAdventure/"
+                        >
+                            Idle Adventure
+                        </a>
+                    
+                        <a
+                            class="link user-link "
+                            href="https://github.com/Elekester/IdleAdventure"
+                        >
+                            GitHub Repository
+                        </a>
+                    
+                
+                
+            </div>
+        </div>
     </div>
-    <ul class="list">
-    
-        <li class="item" data-name="Game">
-            <span class="title">
-                <a href="Game.html">Game</a>
-                
-                <span class="static">static</span>
-                
-            </span>
-            <ul class="members itemMembers">
-            
-            <span class="subtitle">Members</span>
-            
-                <li data-name="Game.fps"><a href="Game.html#.fps">fps</a></li>
-            
-                <li data-name="Game.version"><a href="Game.html#.version">version</a></li>
-            
-            </ul>
-            <ul class="typedefs itemMembers">
-            
-            </ul>
-            <ul class="methods itemMembers">
-            
-            <span class="subtitle">Methods</span>
-            
-                <li data-name="Game.draw"><a href="Game.html#.draw">draw</a></li>
-            
-                <li data-name="Game.init"><a href="Game.html#.init">init</a></li>
-            
-                <li data-name="Game.logic"><a href="Game.html#.logic">logic</a></li>
-            
-                <li data-name="Game.loop"><a href="Game.html#.loop">loop</a></li>
-            
-            </ul>
-            <ul class="events itemMembers">
-            
-            </ul>
-        </li>
-    
-        <li class="item" data-name="global">
-            <span class="title">
-                <a href="global.html">global</a>
-                
-                <span class="static">static</span>
-                
-            </span>
-            <ul class="members itemMembers">
-            
-            </ul>
-            <ul class="typedefs itemMembers">
-            
-            </ul>
-            <ul class="methods itemMembers">
-            
-            <span class="subtitle">Methods</span>
-            
-                <li data-name="appendNewElement"><a href="global.html#appendNewElement">appendNewElement</a></li>
-            
-                <li data-name="e"><a href="global.html#e">e</a></li>
-            
-                <li data-name="removeChildren"><a href="global.html#removeChildren">removeChildren</a></li>
-            
-                <li data-name="sample"><a href="global.html#sample">sample</a></li>
-            
-            </ul>
-            <ul class="events itemMembers">
-            
-            </ul>
-        </li>
-    
-    </ul>
 </div>
-    <div class="main">
-        <h1 class="page-title" data-filename="index.html">Index</h1>
-        
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+                <div class="search-wrapper">
+                    <input id="search" type="text" placeholder="Search docs..." class="input">
+                </div>
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Namespaces</h3><ul><li><a href="Game.html">Game</a></li></ul><h3>Global</h3><ul><li><a href="global.html#appendNewElement">appendNewElement</a></li><li><a href="global.html#e">e</a></li><li><a href="global.html#removeChildren">removeChildren</a></li><li><a href="global.html#sample">sample</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p></p>
+                    <h1>Home</h1>
+                </header>
+                
+
 
 
     
@@ -124,29 +116,31 @@
 
 
 
+
+
     
 
 
 
 
     <section>
-        <article class="readme"><p><img src="https://img.shields.io/github/license/elekester/idleadventure" alt="MIT License"> <img src="https://img.shields.io/github/v/release/elekester/idleadventure?include_prereleases" alt="Latest Release"></p>
+        <article><p><img src="https://img.shields.io/github/license/elekester/idleadventure" alt="MIT License"> <img src="https://img.shields.io/github/v/release/elekester/idleadventure?include_prereleases" alt="Latest Release"></p>
 <h1>Idle Adventure</h1>
-<p><a target="_blank" href="https://elekester.github.io/IdleAdventure/">Idle Adventure</a> is an idle/clicker game for your web browser.</p>
+<p><a href="https://elekester.github.io/IdleAdventure/">Idle Adventure</a> is an idle/clicker game for your web browser.</p>
 <h2>Source</h2>
 <ul>
-<li><a target="_blank" href="https://elekester.github.io/IdleAdventure/docs/index.html">Documentation</a></li>
-<li><a target="_blank" href="https://github.com/Elekester/IdleAdventure">GitHub Repository</a>
+<li><a href="https://elekester.github.io/IdleAdventure/docs/index.html">Documentation</a></li>
+<li><a href="https://github.com/Elekester/IdleAdventure">GitHub Repository</a>
 <ul>
-<li><a target="_blank" href="https://github.com/Elekester/IdleAdventure/blob/main/index.html"><code>index.html</code></a></li>
-<li><a target="_blank" href="https://github.com/Elekester/IdleAdventure/blob/main/main.js"><code>main.js</code></a></li>
-<li><a target="_blank" href="https://github.com/Elekester/IdleAdventure/blob/main/style.css"><code>style.css</code></a></li>
+<li><a href="https://github.com/Elekester/IdleAdventure/blob/main/index.html"><code>index.html</code></a></li>
+<li><a href="https://github.com/Elekester/IdleAdventure/blob/main/main.js"><code>main.js</code></a></li>
+<li><a href="https://github.com/Elekester/IdleAdventure/blob/main/style.css"><code>style.css</code></a></li>
 </ul>
 </li>
 </ul>
 <h2>License</h2>
 <p>Idle Adventure is copyright (c) 2021-present Clayton Craig.</p>
-<p>Idle Adventure is open-source, licensed under the MIT License. See <a target="_blank" href="https://github.com/Elekester/IdleAdventure/blob/main/LICENSE.md"><code>LICENSE.md</code></a> for more details.</p></article>
+<p>Idle Adventure is open-source, licensed under the MIT License. See <a href="https://github.com/Elekester/IdleAdventure/blob/main/LICENSE.md"><code>LICENSE.md</code></a> for more details.</p></article>
     </section>
 
 
@@ -154,15 +148,27 @@
 
 
 
-        
-
-        <footer>
-            Documentation generated by <a target="_blank" href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a> on Sat Jan 30 2021 03:05:22 GMT-0600 (Central Standard Time)
-        </footer>
+            </div>
+            
+            <footer class="footer">
+                <div class="content has-text-centered">
+                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a></p>
+                    <p class="sidebar-created-by">
+                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by 
+                        <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
+                    </p>
+                </div>
+            </footer>
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
     </div>
-</div>
-<script>prettyPrint();</script>
-<script src="scripts/linenumber.js"></script>
-<script src="scripts/main.js"></script>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+<script src="scripts/search.js"> </script>
+
 </body>
 </html>

@@ -1,7 +1,7 @@
 {
 	"opts": {
 		"destination": "docs/",
-		"template": "C:/Program Files/nodejs/node_modules/npm/node_modules/jaguarjs-jsdoc"
+		"template": "C:/Program Files/nodejs/node_modules/npm/node_modules/better-docs"
 	},
 	"plugins": ["plugins/markdown"],
 	"recurseDepth": 10,
@@ -17,9 +17,18 @@
 		"cleverLinks": false,
 		"monospaceLinks": false,
 		"applicationName": "Idle Adventure",
-		"meta": {
-			"title": "Idle Adventure Documentation"
-		},
-		"linenums": true
+		"search": true,
+		"better-docs": {
+			"name": "Idle Adventure Documentation",
+			"title": "Idle Adventure - ",
+			"css": "docsStyle.css",
+			"navLinks": [ {
+				"label": "Idle Adventure",
+				"href": "https://elekester.github.io/IdleAdventure/"
+			}, {
+				"label": "GitHub Repository",
+				"href": "https://github.com/Elekester/IdleAdventure"
+			}]
+		}
 	}
 }

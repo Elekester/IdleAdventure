@@ -2,7 +2,7 @@
  * Idle Adventure is copyright (c) 2021-present Clayton Craig.
  * Idle Adventure is open-source, licensed under the MIT License. See LICENSE.md for more details.
  *
- * Welcome to main.js, I hope you find it well commented. I've used JSDoc where I could, though I'm using jaguarjs-jsdoc which requires a few hacks to get everything working.
+ * Welcome to main.js, I hope you find it well commented. I've used JSDoc where I could.
  *****************************************************************************/
  
 /**
@@ -14,7 +14,7 @@ var Game = {};
  * The version number of Idle Adventure.
  * @type {number}
  */
-Game.version = 0.080;
+Game.version = 0.083;
 
 /**
  * The target fps at which to run the game.
