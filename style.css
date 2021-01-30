@@ -174,7 +174,6 @@ a:hover > img, a:active > img {
 	position: absolute;
 	left: 50%;
 	transform: translate(-50%, 0);
-	padding: 7px;
 	max-width: 60ch;
 	text-align: center;
 }
