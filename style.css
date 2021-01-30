@@ -34,6 +34,7 @@ body {
 	background: var(--bg);
 	font-family: Arial, sans-serif;
 	font-size: 13px;
+	line-height: 1;
 }
 
 a, a:visited {
@@ -43,7 +44,11 @@ a, a:visited {
 }
 
 a:hover, a:active {
-	text-shadow: 0px 0px 3px var(--fg);
+	text-shadow: 0 0 0.25em var(--fg);
+}
+
+a:hover > img, a:active > img {
+	box-shadow: 0 0 0.25em var(--fg);
 }
 
 /******************************************************************************
@@ -89,10 +94,11 @@ a:hover, a:active {
  *****************************************************************************/
 
 .title {
+	padding-top: 7px;
 	padding-bottom: 7px;
 	font-size: 26px;
 	color: var(--fgNotice);
-	text-shadow: 0px 0px 6px var(--fg);
+	text-shadow: 0 0 0.25em var(--fg);
 }
 
 .blink {
@@ -123,10 +129,10 @@ a:hover, a:active {
 
 #wrapper {
 	position: absolute;
-	left: 0px;
-	top: 0px;
-	right: 0px;
-	bottom: 0px;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
 	width: 100%;
 	height: 100%;
 }
@@ -137,8 +143,8 @@ a:hover, a:active {
 
 #topBar {
 	position: absolute;
-	left: 0px;
-	top: 0px;
+	left: 0;
+	top: 0;
 	width: 100%;
 	height: 27px;
 	overflow: auto;
@@ -147,7 +153,7 @@ a:hover, a:active {
 #topBar > div {
 	padding: 7px;
 	height: 13px;
-	box-shadow: 0px 0px 3px 0px var(--fg) inset;
+	box-shadow: 0 0 3px 0 var(--fg) inset;
 }
 
 /******************************************************************************
@@ -156,10 +162,10 @@ a:hover, a:active {
 
 #game {
 	position: absolute;
-	left: 0px;
+	left: 0;
 	top: 27px;
-	right: 0px;
-	bottom: 0px;
+	right: 0;
+	bottom: 0;
 	height: auto;
 	width: 100%;
 	overflow: hidden;
@@ -169,7 +175,6 @@ a:hover, a:active {
 	position: absolute;
 	left: 50%;
 	transform: translate(-50%, 0);
-	padding: 7px;
 	max-width: 60ch;
 	text-align: center;
 }
@@ -200,11 +205,10 @@ a:hover, a:active {
 	height: 50px;
 	margin: 3.5px;
 	background: red;
-	box-shadow: 0px 0px 10px 5px var(--fg) inset;
+	box-shadow: 0 0 10px 5px var(--fg) inset;
 }
 
 #store {
-	padding-top: 7px;
 	height: 100%;
 	overflow-x: hidden;
 	overflow-y: auto;
@@ -220,10 +224,10 @@ a:hover, a:active {
 	width: 400px;
 	height: 64px;
 	background: red;
-	box-shadow: 0px 0px 3px 0px var(--fg) inset;
+	box-shadow: 0 0 3px 0 var(--fg) inset;
 }
 
 #heroesStoreAnchor > div:hover {
 	background: pink;
-	box-shadow: 0px 0px 0px 3px var(--fg) inset;
+	box-shadow: 0 0 0 3px var(--fg) inset;
 }
