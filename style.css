@@ -181,6 +181,7 @@ a:hover > img, a:active > img {
 	width: 100%;
 	height: 27px;
 	overflow: auto;
+	border-bottom: 1px solid var(--bg);
 }
 
 #topBar > div {
@@ -196,7 +197,7 @@ a:hover > img, a:active > img {
 #game {
 	position: absolute;
 	left: 0;
-	top: 27px;
+	top: 28px;
 	right: 0;
 	bottom: 0;
 	height: auto;
@@ -232,6 +233,7 @@ a:hover > img, a:active > img {
 	position: relative;
 	height: 100%;
 	overflow: hidden;
+	box-shadow: 0 0 3px 0 var(--fg) inset;
 }
 
 #buffsAnchor {
@@ -257,7 +259,7 @@ a:hover > img, a:active > img {
 	height: 100%;
 	overflow-x: hidden;
 	overflow-y: auto;
-	border-left: 7px solid var(--fg);
+	box-shadow: 0 0 3px 0 var(--fg) inset;
 }
 
 /******************************************************************************

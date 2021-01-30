@@ -24,7 +24,7 @@
 			"css": "docsStyle.css",
 			"navLinks": [ {
 				"label": "Idle Adventure",
-				"href": "https://elekester.github.io/IdleAdventure/"
+				"href": "../index.html"
 			}, {
 				"label": "GitHub Repository",
 				"href": "https://github.com/Elekester/IdleAdventure"
