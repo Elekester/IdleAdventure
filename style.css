@@ -209,7 +209,6 @@ a:hover > img, a:active > img {
 }
 
 #store {
-	padding-top: 7px;
 	height: 100%;
 	overflow-x: hidden;
 	overflow-y: auto;
