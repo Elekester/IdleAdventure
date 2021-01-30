@@ -14,7 +14,7 @@ var Game = {};
  * The version number of Idle Adventure.
  * @type {number}
  */
-Game.version = 0.084;
+Game.version = 0.087;
 
 /**
  * The target fps at which to run the game.
@@ -138,16 +138,23 @@ Game.init = function() {
 	/* Recreate the game div. */
 	removeChildren('game');
 	var frag = document.createDocumentFragment();
-	store = appendNewElement(frag, 'div', function() {this.id='store'; this.className = 'right';});
-	appendNewElement(store, 'div', function() {this.className = 'title'; this.textContent = 'Heroes'});
-	appendNewElement(store, 'div', function() {this.id = 'heroesStoreAnchor';});
+	
+	/* Create the right menu. */
+	menu = appendNewElement(frag, 'div', function() {this.id = 'menu'; this.className = 'right';});
+	store = appendNewElement(menu, 'div', function() {this.id = 'store';});
+		appendNewElement(store, 'div', function() {this.className = 'titleCentered'; this.textContent = 'Heroes'});
+		appendNewElement(store, 'div', function() {this.id = 'heroesStoreAnchor';});
+	appendNewElement(menu, 'div', function() {this.className = 'bottomPadding'});
+	
+	/* Create the main field. */
 	field = appendNewElement(frag, 'div', function() {this.id = 'field'; this.className = 'middle';});
 	appendNewElement(field, 'div', function() {this.id = 'buffsAnchor';});
+	
 	e('game').appendChild(frag);
 	
 	/* Test elements */
-	for (var i = 0; i < 10; i++) {appendNewElement(e('heroesStoreAnchor'), 'div');};
-	for (var i = 0; i < 50; i++) {appendNewElement(e('buffsAnchor'), 'div');};
+	for (var i = 0; i < 10; i++) {appendNewElement(e('heroesStoreAnchor'), 'div', function() {this.textContent = i;})};
+	for (var i = 0; i < 50; i++) {appendNewElement(e('buffsAnchor'), 'div', function() {this.textContent = i;})};
 	
 	/* Add event listeners. */
 	

@@ -52,7 +52,7 @@ a:hover > img, a:active > img {
 }
 
 /******************************************************************************
- * Animations
+ * Animation Keyframes
  *****************************************************************************/
  
 @keyframes appearLate {
@@ -88,25 +88,42 @@ a:hover > img, a:active > img {
 	}
 }
 
-
 /******************************************************************************
- * By class
+ * title Classes
  *****************************************************************************/
 
-.title {
+.title, .titleCentered {
 	padding-top: 7px;
 	padding-bottom: 7px;
+	width: 100%;
 	font-size: 26px;
 	color: var(--fgNotice);
 	text-shadow: 0 0 0.25em var(--fg);
 }
 
-.blink {
-	animation-name: blink;
-	animation-iteration-count: infinite;
-	animation-duration: 1s;
-	animation-timing-function: ease-in-out;
+.titleCentered {
+	text-align: center;
 }
+
+.title::after, .titleCentered::after, .title::before, .titleCentered::before {
+	content: '';
+	margin: 0.25em 0;
+	width: 100%;
+	height: 1px;
+	display: block;
+}
+
+.titleCentered::after, .titleCentered::before {
+	background: linear-gradient(to right, transparent, transparent, var(--fg), transparent, transparent);
+}
+
+.title::after, .title::before {
+	background: linear-gradient(to right, var(--fg), transparent, transparent, transparent, transparent);
+}
+
+/******************************************************************************
+ * float Classes
+ *****************************************************************************/
 
 .left {
 	float: left;
@@ -124,7 +141,23 @@ a:hover > img, a:active > img {
 }
 
 /******************************************************************************
- * wrapper
+ * other Classes
+ *****************************************************************************/
+
+.blink {
+	animation-name: blink;
+	animation-iteration-count: infinite;
+	animation-duration: 1s;
+	animation-timing-function: ease-in-out;
+}
+
+.bottomPadding {
+	width: 100%;
+	height: 100px;
+}
+
+/******************************************************************************
+ * wrapper Div
  *****************************************************************************/
 
 #wrapper {
@@ -138,7 +171,7 @@ a:hover > img, a:active > img {
 }
 
 /******************************************************************************
- * topBar
+ * topBar Div
  *****************************************************************************/
 
 #topBar {
@@ -157,7 +190,7 @@ a:hover > img, a:active > img {
 }
 
 /******************************************************************************
- * game
+ * game Div
  *****************************************************************************/
 
 #game {
@@ -171,21 +204,29 @@ a:hover > img, a:active > img {
 	overflow: hidden;
 }
 
+/******************************************************************************
+ * game Div > gameLoading Div
+ *****************************************************************************/
+
 #gameLoading {
 	position: absolute;
 	left: 50%;
 	transform: translate(-50%, 0);
 	max-width: 60ch;
-	text-align: center;
 }
 
 #gameLoadingWarning {
 	color: var(--fgWarn);
+	text-align: center;
 	animation-name: appearLate;
 	animation-iteration-count: 1;
 	animation-duration: 10s;
 	animation-timing-function: ease-out;
 }
+
+/******************************************************************************
+ * game Div > field Div
+ *****************************************************************************/
 
 #field {
 	position: relative;
@@ -208,16 +249,25 @@ a:hover > img, a:active > img {
 	box-shadow: 0 0 10px 5px var(--fg) inset;
 }
 
-#store {
+/******************************************************************************
+ * game Div > menu Div
+ *****************************************************************************/
+
+#menu {
 	height: 100%;
 	overflow-x: hidden;
 	overflow-y: auto;
 	border-left: 7px solid var(--fg);
-	text-align: center;
+}
+
+/******************************************************************************
+ * game Div > menu Div > store Div
+ *****************************************************************************/
+
+#store {
 }
 
 #heroesStoreAnchor {
-	max-height: 1200px;
 }
 
 #heroesStoreAnchor > div {
