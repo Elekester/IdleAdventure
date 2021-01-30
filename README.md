@@ -4,11 +4,14 @@
 [Idle Adventure](https://elekester.github.io/IdleAdventure/) is an idle/clicker game for your web browser.
 
 ## Source
-* [GitHub Repository](https://github.com/Elekester/IdleAdventure)
 * [Documentation](https://elekester.github.io/IdleAdventure/docs/index.html)
+* [GitHub Repository](https://github.com/Elekester/IdleAdventure)
+  * [```index.html```](https://github.com/Elekester/IdleAdventure/blob/main/index.html)
+  * [```main.js```](https://github.com/Elekester/IdleAdventure/blob/main/main.js)
+  * [```style.css```](https://github.com/Elekester/IdleAdventure/blob/main/style.css)
 
 ## License
 
 Idle Adventure is copyright (c) 2021-present Clayton Craig.
 
-Idle Adventure is open-source, licensed under the MIT License. See ```LICENSE.md``` for more details.
+Idle Adventure is open-source, licensed under the MIT License. See [```LICENSE.md```](https://github.com/Elekester/IdleAdventure/blob/main/LICENSE.md) for more details.

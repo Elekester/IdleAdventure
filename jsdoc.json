@@ -23,11 +23,15 @@
 		"destination": "docs/",
 		"template": "C:/Program Files/nodejs/node_modules/npm/node_modules/docdash"
 	},
+	"plugins": ["plugins/markdown"],
+	"recurseDepth": 10,
 	"source": {
 		"include": ["main.js", "README.md"]
 	},
+	"sourceType": "module",
 	"tags": {
-		"allowUnknownTags": true
+		"allowUnknownTags": true,
+		"dictionaries": ["jsdoc","closure"]
 	},
 	"templates": {
 		"cleverLinks": false,
