@@ -1,7 +1,6 @@
 ![MIT License](https://img.shields.io/github/license/elekester/idleadventure) ![Latest Release](https://img.shields.io/github/v/release/elekester/idleadventure?include_prereleases)
 
-# Idle Adventure
-[Idle Adventure](https://elekester.github.io/IdleAdventure/) is an idle/clicker game for your web browser.
+[Idle Adventure](https://elekester.github.io/IdleAdventure/) is an open-source idle/clicker game for your web browser.
 
 ## Source
 * [Documentation](https://elekester.github.io/IdleAdventure/docs/index.html)

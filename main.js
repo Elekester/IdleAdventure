@@ -14,7 +14,7 @@ var Game = {};
  * The version number of Idle Adventure.
  * @type {number}
  */
-Game.version = 0.083;
+Game.version = 0.084;
 
 /**
  * The target fps at which to run the game.
@@ -30,7 +30,6 @@ Game.fps = 30;
 
 /**
  * This function returns the DOM element with the given id.
- * @global
  * @param {string} str - The name of the id.
  * @returns {HTMLElement} The element with the given id.
  */
@@ -38,14 +37,12 @@ function e(str) {return document.getElementById(str);}
 
 /**
  * This function removes all child nodes from a given element.
- * @global
  * @param {(HTMLElement|string)} node - The element or the id of an element, from which to remove all child nodes.
  */
 function removeChildren(node) {if (typeof node === 'string') node = e(node); while (node.firstChild) node.removeChild(node.firstChild);}
 
 /**
  * This function samples an array with or without replacement.
- * @global
  * @param {Array} arr - An array to sample.
  * @param {number} [n=1] - The sample size.
  * @param {boolean} [rep=false] - Sample with replacement (true) or without (false).
@@ -66,7 +63,6 @@ function sample(arr, n, rep) {
 
 /**
  * This function creates an HTML element and appends it to another.
- * @global
  * @param {HTMLElement} node - The parent node.
  * @param {string} tagName - Specifies the type of element to be created.
  * @param {function} callback - A function to be called after creating the element, but before appending the element. 'this' is bound to the child element in the callback.
