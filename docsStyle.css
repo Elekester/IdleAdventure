@@ -1,3 +1,7 @@
 .tag-source span a {
-    color: #3273dc;
+	color: #3273dc;
+}
+
+.linenums {
+	background: #090e11;
 }
