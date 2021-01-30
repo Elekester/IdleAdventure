@@ -8,6 +8,7 @@
   * [```index.html```](https://github.com/Elekester/IdleAdventure/blob/main/index.html)
   * [```main.js```](https://github.com/Elekester/IdleAdventure/blob/main/main.js)
   * [```style.css```](https://github.com/Elekester/IdleAdventure/blob/main/style.css)
+  * [```img/```](https://github.com/Elekester/IdleAdventure/tree/main/img)
 
 ## License
 
