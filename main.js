@@ -11,7 +11,7 @@
  */
 var Game = {};
 
-Game.version = 0.064; /* This shiould roughly correspond to the number of commits to the repository on GitHub/1000. */
+Game.version = 0.065; /* This shiould roughly correspond to the number of commits to the repository on GitHub/1000. */
 Game.fps = 30;
 
 /******************************************************************************
@@ -58,15 +58,14 @@ function sample(arr, n, rep) {
  * @param {HTMLElement} node - The parent node.
  * @param {string} tagName - Specifies the type of element to be created.
  * @param {function} callback - A function to be called after creating the element, but before appending the element. 'this' is bound to the child element in the callback.
- * @returns {HTMLElement} The created element.
+ * @returns {HTMLElement} The node of the appended element.
  */
 function appendNewElement(node, tagName, callback) {
 	callback ??= function() {};
 	var elem = document.createElement(tagName);
 	callback.bind(elem)();
 	node.appendChild(elem);
-	
-	return elem;
+	return node.lastChild;
 }
 
 /******************************************************************************
@@ -131,15 +130,16 @@ Game.init = function() {
 	/* Recreate the game div. */
 	removeChildren('game');
 	var frag = document.createDocumentFragment();
-	appendNewElement(frag, 'div', function() {this.id='store';});
-	appendNewElement(frag, 'div', function() {
-		this.id = 'buffsAnchor';
-		for (var i = 0; i < 50; i++) {
-			appendNewElement(this, 'div');
-		}
-	});
-	
+	store = appendNewElement(frag, 'div', function() {this.id='store'; this.className = 'right';});
+	appendNewElement(store, 'div', function() {this.className = 'title'; this.textContent = 'Heroes'});
+	appendNewElement(store, 'div', function() {this.id = 'heroesStoreAnchor';});
+	field = appendNewElement(frag, 'div', function() {this.id = 'field'; this.className = 'middle';});
+	appendNewElement(field, 'div', function() {this.id = 'buffsAnchor';});
 	e('game').appendChild(frag);
+	
+	/* Test elements */
+	for (var i = 0; i < 10; i++) {appendNewElement(e('heroesStoreAnchor'), 'div');};
+	for (var i = 0; i < 50; i++) {appendNewElement(e('buffsAnchor'), 'div');};
 	
 	/* Add event listeners. */
 	
