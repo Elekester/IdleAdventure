@@ -2,26 +2,35 @@
  * Idle Adventure is copyright (c) 2021-present Clayton Craig.
  * Idle Adventure is open-source, licensed under the MIT License. See LICENSE.md for more details.
  *
- * Welcome to main.js, I hope you find it well commented. I've used JSDoc where I could.
+ * Welcome to main.js, I hope you find it well commented. I've used JSDoc where I could, though I'm using jaguarjs-jsdoc which requires a few hacks to get everything working.
  *****************************************************************************/
  
 /**
- * This is the Object that holds Idle Adventure.
  * @namespace
  */
 var Game = {};
 
-Game.version = 0.065; /* This shiould roughly correspond to the number of commits to the repository on GitHub/1000. */
+/**
+ * The version number of Idle Adventure.
+ * @type {number}
+ */
+Game.version = 0.080;
+
+/**
+ * The target fps at which to run the game.
+ * @type {number}
+ */
 Game.fps = 30;
 
 /******************************************************************************
  * Library of Functions
  *
- * These functions are simple and used throughout the document.
+ * These functions are simple and used throughout main.js.
  *****************************************************************************/
 
 /**
  * This function returns the DOM element with the given id.
+ * @global
  * @param {string} str - The name of the id.
  * @returns {HTMLElement} The element with the given id.
  */
@@ -29,12 +38,14 @@ function e(str) {return document.getElementById(str);}
 
 /**
  * This function removes all child nodes from a given element.
+ * @global
  * @param {(HTMLElement|string)} node - The element or the id of an element, from which to remove all child nodes.
  */
 function removeChildren(node) {if (typeof node === 'string') node = e(node); while (node.firstChild) node.removeChild(node.firstChild);}
 
 /**
  * This function samples an array with or without replacement.
+ * @global
  * @param {Array} arr - An array to sample.
  * @param {number} [n=1] - The sample size.
  * @param {boolean} [rep=false] - Sample with replacement (true) or without (false).
@@ -55,6 +66,7 @@ function sample(arr, n, rep) {
 
 /**
  * This function creates an HTML element and appends it to another.
+ * @global
  * @param {HTMLElement} node - The parent node.
  * @param {string} tagName - Specifies the type of element to be created.
  * @param {function} callback - A function to be called after creating the element, but before appending the element. 'this' is bound to the child element in the callback.

@@ -1,27 +1,7 @@
 {
-	"docdash": {
-		"sort": true,
-		"menu": {
-			"GitHub Repo": {
-				"href": "https://github.com/Elekester/IdleAdventure",
-				"target": "_blank",
-				"class": "menu-item",
-				"id": "github_repo"
-			},
-			"Idle Adventure": {
-				"href": "https://elekester.github.io/IdleAdventure/",
-				"target": "_blank",
-				"class": "menu-item",
-				"id": "idle_adventure"
-			}
-		},
-		"meta": {
-			"title": "Idle Adventure"
-		}
-	},
 	"opts": {
 		"destination": "docs/",
-		"template": "C:/Program Files/nodejs/node_modules/npm/node_modules/docdash"
+		"template": "C:/Program Files/nodejs/node_modules/npm/node_modules/jaguarjs-jsdoc"
 	},
 	"plugins": ["plugins/markdown"],
 	"recurseDepth": 10,
@@ -35,6 +15,11 @@
 	},
 	"templates": {
 		"cleverLinks": false,
-		"monospaceLinks": false
+		"monospaceLinks": false,
+		"applicationName": "Idle Adventure",
+		"meta": {
+			"title": "Idle Adventure Documentation"
+		},
+		"linenums": true
 	}
 }

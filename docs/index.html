@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    
     <meta charset="utf-8">
-    <title>Home - Idle Adventure</title>
+    <title>Idle Adventure Documentation</title>
     
     
     
@@ -11,42 +10,112 @@
     
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
+    <script src="scripts/jquery.min.js"></script>
     <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
-    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
-    <script src="scripts/nav.js" defer></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/jaguar.css">
+    
+    
+    <script>
+    var config = {"monospaceLinks":false,"cleverLinks":false,"applicationName":"Idle Adventure","meta":{"title":"Idle Adventure Documentation"},"linenums":true,"default":{}};
+    </script>
+    
+
+    
 </head>
 <body>
-
-<input type="checkbox" id="nav-trigger" class="nav-trigger" />
-<label for="nav-trigger" class="navicon-button x">
-  <div class="navicon"></div>
-</label>
-
-<label for="nav-trigger" class="overlay"></label>
-
-<nav >
+<div id="wrap" class="clearfix">
     
-    <h2><a href="index.html">Home</a></h2><h2><a href="https://github.com/Elekester/IdleAdventure" target="_blank" class="menu-item" id="github_repo" >GitHub Repo</a></h2><h2><a href="https://elekester.github.io/IdleAdventure/" target="_blank" class="menu-item" id="idle_adventure" >Idle Adventure</a></h2><h3>Namespaces</h3><ul><li><a href="Game.html">Game</a><ul class='methods'><li data-type='method'><a href="Game.html#.draw">draw</a></li><li data-type='method'><a href="Game.html#.init">init</a></li><li data-type='method'><a href="Game.html#.logic">logic</a></li><li data-type='method'><a href="Game.html#.loop">loop</a></li></ul></li></ul><h3>Global</h3><ul><li><a href="global.html#appendNewElement">appendNewElement</a></li><li><a href="global.html#e">e</a></li><li><a href="global.html#removeChildren">removeChildren</a></li><li><a href="global.html#sample">sample</a></li></ul>
-</nav>
+<div class="navigation">
+    <h3 class="applicationName"><a href="index.html">Idle Adventure</a></h3>
 
-<div id="main">
+    <div class="search">
+        <input id="search" type="text" class="form-control input-sm" placeholder="Search Documentations">
+    </div>
+    <ul class="list">
+    
+        <li class="item" data-name="Game">
+            <span class="title">
+                <a href="Game.html">Game</a>
+                
+                <span class="static">static</span>
+                
+            </span>
+            <ul class="members itemMembers">
+            
+            <span class="subtitle">Members</span>
+            
+                <li data-name="Game.fps"><a href="Game.html#.fps">fps</a></li>
+            
+                <li data-name="Game.version"><a href="Game.html#.version">version</a></li>
+            
+            </ul>
+            <ul class="typedefs itemMembers">
+            
+            </ul>
+            <ul class="methods itemMembers">
+            
+            <span class="subtitle">Methods</span>
+            
+                <li data-name="Game.draw"><a href="Game.html#.draw">draw</a></li>
+            
+                <li data-name="Game.init"><a href="Game.html#.init">init</a></li>
+            
+                <li data-name="Game.logic"><a href="Game.html#.logic">logic</a></li>
+            
+                <li data-name="Game.loop"><a href="Game.html#.loop">loop</a></li>
+            
+            </ul>
+            <ul class="events itemMembers">
+            
+            </ul>
+        </li>
+    
+        <li class="item" data-name="global">
+            <span class="title">
+                <a href="global.html">global</a>
+                
+                <span class="static">static</span>
+                
+            </span>
+            <ul class="members itemMembers">
+            
+            </ul>
+            <ul class="typedefs itemMembers">
+            
+            </ul>
+            <ul class="methods itemMembers">
+            
+            <span class="subtitle">Methods</span>
+            
+                <li data-name="appendNewElement"><a href="global.html#appendNewElement">appendNewElement</a></li>
+            
+                <li data-name="e"><a href="global.html#e">e</a></li>
+            
+                <li data-name="removeChildren"><a href="global.html#removeChildren">removeChildren</a></li>
+            
+                <li data-name="sample"><a href="global.html#sample">sample</a></li>
+            
+            </ul>
+            <ul class="events itemMembers">
+            
+            </ul>
+        </li>
+    
+    </ul>
+</div>
+    <div class="main">
+        <h1 class="page-title" data-filename="index.html">Index</h1>
+        
+
+
     
 
-    
 
-
-
-    
-
-
-    <section class="package">
-        <h3> </h3>		
-    </section>
-
+    <h3> </h3>
 
 
 
@@ -59,24 +128,25 @@
 
 
 
-    <section class="readme usertext">
-        <article><p><img src="https://img.shields.io/github/license/elekester/idleadventure" alt="MIT License"> <img src="https://img.shields.io/github/v/release/elekester/idleadventure?include_prereleases" alt="Latest Release"></p>
+
+    <section>
+        <article class="readme"><p><img src="https://img.shields.io/github/license/elekester/idleadventure" alt="MIT License"> <img src="https://img.shields.io/github/v/release/elekester/idleadventure?include_prereleases" alt="Latest Release"></p>
 <h1>Idle Adventure</h1>
-<p><a href="https://elekester.github.io/IdleAdventure/">Idle Adventure</a> is an idle/clicker game for your web browser.</p>
+<p><a target="_blank" href="https://elekester.github.io/IdleAdventure/">Idle Adventure</a> is an idle/clicker game for your web browser.</p>
 <h2>Source</h2>
 <ul>
-<li><a href="https://elekester.github.io/IdleAdventure/docs/index.html">Documentation</a></li>
-<li><a href="https://github.com/Elekester/IdleAdventure">GitHub Repository</a>
+<li><a target="_blank" href="https://elekester.github.io/IdleAdventure/docs/index.html">Documentation</a></li>
+<li><a target="_blank" href="https://github.com/Elekester/IdleAdventure">GitHub Repository</a>
 <ul>
-<li><a href="https://github.com/Elekester/IdleAdventure/blob/main/index.html"><code>index.html</code></a></li>
-<li><a href="https://github.com/Elekester/IdleAdventure/blob/main/main.js"><code>main.js</code></a></li>
-<li><a href="https://github.com/Elekester/IdleAdventure/blob/main/style.css"><code>style.css</code></a></li>
+<li><a target="_blank" href="https://github.com/Elekester/IdleAdventure/blob/main/index.html"><code>index.html</code></a></li>
+<li><a target="_blank" href="https://github.com/Elekester/IdleAdventure/blob/main/main.js"><code>main.js</code></a></li>
+<li><a target="_blank" href="https://github.com/Elekester/IdleAdventure/blob/main/style.css"><code>style.css</code></a></li>
 </ul>
 </li>
 </ul>
 <h2>License</h2>
 <p>Idle Adventure is copyright (c) 2021-present Clayton Craig.</p>
-<p>Idle Adventure is open-source, licensed under the MIT License. See <a href="https://github.com/Elekester/IdleAdventure/blob/main/LICENSE.md"><code>LICENSE.md</code></a> for more details.</p></article>
+<p>Idle Adventure is open-source, licensed under the MIT License. See <a target="_blank" href="https://github.com/Elekester/IdleAdventure/blob/main/LICENSE.md"><code>LICENSE.md</code></a> for more details.</p></article>
     </section>
 
 
@@ -84,21 +154,15 @@
 
 
 
-    
-    
+        
+
+        <footer>
+            Documentation generated by <a target="_blank" href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a> on Sat Jan 30 2021 03:05:22 GMT-0600 (Central Standard Time)
+        </footer>
+    </div>
 </div>
-
-<br class="clear">
-
-<footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a> on Fri Jan 29 2021 23:29:10 GMT-0600 (Central Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
-</footer>
-
 <script>prettyPrint();</script>
-<script src="scripts/polyfill.js"></script>
 <script src="scripts/linenumber.js"></script>
-
-
-
+<script src="scripts/main.js"></script>
 </body>
 </html>
