@@ -3,6 +3,13 @@
  * Idle Adventure is open-source, licensed under the MIT License. See LICENSE.md for more details.
  *****************************************************************************/
 
+:root {
+	--bg: rgb(31, 27, 23);
+	--fg: rgb(239, 235, 231);
+	--fgNotice: rgb(255, 251, 247);
+	--fgWarn: rgb(239, 63, 63);
+}
+
 /******************************************************************************
  * Default
  *****************************************************************************/
@@ -22,11 +29,9 @@ html,body {
 }
 
 body {
-	line-height: 1;
 	touch-action: manipulation;
-	color: rgb(223, 223, 223);
-	background: rgb(31, 31, 31);
-	background-image: url("img/backgroundNoise.png"); /* 256x256 perlin noise mapped into the interval [29,33] */
+	color: var(--fg);
+	background: var(--bg);
 	font-family: Arial, sans-serif;
 	font-size: 13px;
 }
@@ -34,11 +39,11 @@ body {
 a, a:visited {
 	text-decoration: underline;
 	cursor: pointer;
-	color: rgb(255, 255, 255);
+	color: var(--fgNotice);
 }
 
 a:hover, a:active {
-	text-shadow: 0px 0px 3px rgb(223, 223, 223);
+	text-shadow: 0px 0px 3px var(--fg);
 }
 
 /******************************************************************************
@@ -85,8 +90,8 @@ a:hover, a:active {
 
 .title {
 	font-size: 26px;
-	color: rgb(255, 255, 255);
-	text-shadow: 0px 0px 6px rgb(223, 223, 223);
+	color: var(--fgNotice);
+	text-shadow: 0px 0px 6px var(--fg);
 	padding-bottom: 7px;
 }
 
@@ -127,17 +132,17 @@ a:hover, a:active {
 #topBar > div {
 	height: 13px;
 	padding: 7px;
-	box-shadow: 0px 0px 3px 0px rgb(223, 223, 223) inset;
+	box-shadow: 0px 0px 3px 0px var(--fg) inset;
 }
 
 #topBar > .left {
 	float: left;
-	border-right: 1px solid rgb(31, 31, 31);
+	border-right: 1px solid var(--bg);
 }
 
 #topBar > .right {
 	float: right;
-	border-left: 1px solid rgb(31, 31, 31);
+	border-left: 1px solid var(--bg);
 }
 
 #topBar > .middle {
@@ -168,7 +173,7 @@ a:hover, a:active {
 }
 
 #gameLoadingWarning {
-	color: rgb(223, 63, 63);
+	color: var(--fgWarn);
 	animation-name: appearLate;
 	animation-iteration-count: 1;
 	animation-duration: 10s;
