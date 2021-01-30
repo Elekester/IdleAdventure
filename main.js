@@ -53,6 +53,22 @@ function sample(arr, n, rep) {
 	return sample;
 }
 
+/**
+ * This function creates an HTML element and appends it to another.
+ * @param {HTMLElement} node - The parent node.
+ * @param {string} tagName - Specifies the type of element to be created.
+ * @param {function} callback - A function to be called after creating the element, but before appending the element. 'this' is bound to the child element in the callback.
+ * @returns {HTMLElement} The created element.
+ */
+function appendNewElement(node, tagName, callback) {
+	callback ??= function() {};
+	var elem = document.createElement(tagName);
+	callback.bind(elem)();
+	node.appendChild(elem);
+	
+	return elem;
+}
+
 /******************************************************************************
  * Game Loop
  *****************************************************************************/
@@ -114,15 +130,16 @@ Game.init = function() {
 	
 	/* Recreate the game div. */
 	removeChildren('game');
-	var frag = document.createElement('div');
-	frag.id = 'gameLoading';
-	var div = document.createElement('div');
-	div.className = 'title';
-	div.innerText = 'Thank you!\nBut our game is in another castle!';
-	frag.appendChild(div);
-	div = document.createElement('div');
-	div.innerText = 'I\'m learning everything as I make Idle Adventure, so bear with me while I do so. Check back in a couple of weeks.'
-	frag.appendChild(div);
+	var frag = document.createDocumentFragment();
+	appendNewElement(frag, 'div', function() {this.id='store';});
+	appendNewElement(frag, 'div', function() {
+		this.id = 'buffsAnchor';
+		for (var i = 0; i < 50; i++) {
+			var testdiv = document.createElement('div');
+			this.appendChild(testdiv);
+		}
+	});
+	
 	e('game').appendChild(frag);
 	
 	/* Add event listeners. */

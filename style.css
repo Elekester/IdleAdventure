@@ -161,6 +161,8 @@ a:hover, a:active {
 	right: 0px;
 	bottom: 0px;
 	overflow: hidden;
+	height: auto;
+	width: 100%;
 }
 
 #gameLoading {
@@ -178,4 +180,23 @@ a:hover, a:active {
 	animation-iteration-count: 1;
 	animation-duration: 10s;
 	animation-timing-function: ease-out;
+}
+
+#buffsAnchor {
+	z-index: 1;
+	margin-right: 7px;
+}
+
+#buffsAnchor > div {
+	background: white;
+	height: 50px;
+	width: 50px;
+	margin: 7px 0px 7px 7px;
+	float: left;
+}
+
+#store {
+	width: 100%;
+	height: 150px;
+	background: red;
 }
