@@ -93,6 +93,7 @@ a:hover > img, a:active > img {
  *****************************************************************************/
 
 .title {
+	padding-top: 7px;
 	padding-bottom: 7px;
 	font-size: 26px;
 	color: var(--fgNotice);
