@@ -1,4 +1,4 @@
-:: Running this bat file generates the docs folder using jsdoc with the configuration from conf.json.
+:: Running this bat file generates the docs folder using JSDoc with the configuration from conf.json.
 @ECHO OFF
 
 :: Remove the old docs directory.
