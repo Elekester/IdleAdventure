@@ -14,7 +14,7 @@ var Game = {};
  * The version number of Idle Adventure.
  * @type {number}
  */
-Game.version = 0.094;
+Game.version = 0.099;
 
 /**
  * The target fps at which to run the game.
@@ -51,10 +51,10 @@ function removeChildren(node) {if (typeof node === 'string') node = e(node); whi
 function sample(arr, n, rep) {
 	n ??= 1;
 	rep ??= false;
-	var sample = [];
-	if (rep) {for (var i = 0; i < n; i++) {
+	let sample = [];
+	if (rep) {for (let i = 0; i < n; i++) {
 		sample.push(arr[Math.floor(Math.random()*arr.length)]);
-	}} else {for (var i = 0; i < n; i++) {
+	}} else {for (let i = 0; i < n; i++) {
 		sample.push(arr[Math.floor(Math.random()*arr.length)]);
 		arr = arr.filter(item => item !== sample[i]);
 	}}
@@ -70,7 +70,7 @@ function sample(arr, n, rep) {
  */
 function appendNewElement(node, tagName, callback) {
 	callback ??= function() {};
-	var elem = document.createElement(tagName);
+	let elem = document.createElement(tagName);
 	callback.bind(elem)();
 	node.appendChild(elem);
 	return node.lastChild;
@@ -160,24 +160,25 @@ Game.init = function() {
 	
 	/* Recreate the game div. */
 	removeChildren('game');
-	var frag = document.createDocumentFragment();
+	let frag = document.createDocumentFragment();
 	
 	/* Create the menu. */
-	var menu = appendNewElement(frag, 'div', function() {this.id = 'menu'; this.className = 'right';});
-	var store = appendNewElement(menu, 'div', function() {this.id = 'store';});
-		appendNewElement(store, 'div', function() {this.className = 'titleCentered'; this.textContent = 'Heroes'});
-		appendNewElement(store, 'div', function() {this.id = 'heroesStoreAnchor';});
+	let menu = appendNewElement(frag, 'div', function() {this.id = 'menu'; this.className = 'right';});
+	
+	let store = appendNewElement(menu, 'div', function() {this.id = 'store';});
+	appendNewElement(store, 'div', function() {this.className = 'titleCentered'; this.textContent = 'Heroes'});
+	appendNewElement(store, 'div', function() {this.id = 'heroesStoreAnchor';});
 	appendNewElement(menu, 'div', function() {this.className = 'bottomPadding'});
 	
 	/* Create the main field. */
-	var field = appendNewElement(frag, 'div', function() {this.id = 'field'; this.className = 'middle';});
-		appendNewElement(field, 'div', function() {this.id = 'buffsAnchor';});
+	let field = appendNewElement(frag, 'div', function() {this.id = 'field'; this.className = 'middle';});
+	appendNewElement(field, 'div', function() {this.id = 'buffsAnchor';});
 	
 	e('game').appendChild(frag);
 	
 	/* Test elements */
-	for (var i = 0; i < 10; i++) {appendNewElement(e('heroesStoreAnchor'), 'div', function() {this.textContent = i;})};
-	for (var i = 0; i < 10; i++) {appendNewElement(e('buffsAnchor'), 'div', function() {this.textContent = i;})};
+	for (let i = 0; i < 10; i++) {appendNewElement(e('heroesStoreAnchor'), 'div', function() {this.textContent = i;})};
+	for (let i = 0; i < 10; i++) {appendNewElement(e('buffsAnchor'), 'div', function() {this.textContent = i;})};
 	
 	/* Add event listeners. */
 	
