@@ -8,13 +8,13 @@
 /**
  * @namespace
  */
-var Game = {};
+let Game = {};
 
 /**
  * The version number of Idle Adventure.
  * @type {number}
  */
-Game.version = 0.099;
+Game.version = 0.100;
 
 /**
  * The target fps at which to run the game.
