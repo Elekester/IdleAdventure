@@ -17,10 +17,15 @@
 		"monospaceLinks": false,
 		"applicationName": "Idle Adventure",
 		"search": true,
+		"default": {
+			"staticFiles": {
+				"include": ["custom.css"]
+			}
+		},
 		"better-docs": {
 			"name": "Idle Adventure Documentation",
 			"title": "Idle Adventure - ",
-			"css": "style.css",
+			"css": "custom.css",
 			"navLinks": [ {
 				"label": "Idle Adventure",
 				"href": "../index.html"
