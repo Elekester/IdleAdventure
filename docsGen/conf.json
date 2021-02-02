@@ -1,6 +1,7 @@
 {
 	"opts": {
-		"destination": "../docs/"
+		"destination": "../docs/",
+		"template": "../better-docs"
 	},
 	"plugins": ["plugins/markdown"],
 	"recurseDepth": 10,
