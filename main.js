@@ -23,7 +23,7 @@ Game.version = 0.094;
 Game.fps = 30;
 
 /******************************************************************************
- * Library of Functions
+ * Global Functions
  *
  * These functions are simple and used throughout main.js.
  *****************************************************************************/
@@ -94,28 +94,6 @@ Game.save = function() {
 }
 
 /******************************************************************************
- * Game Loop
- *****************************************************************************/
-/**
- * This function performs the main loop of the game and ensures that the game's logic accounts for the actual fps.
- * @function
- */
-Game.loop = function() {
-	/* Perform game logic and catch up on any missed logic frames. */
-	Game.logic();
-	const now = Date.now();
-	Game.frameDelay += (now - Game.time)*Game.fps/1000 - 1;
-	for ({}; Game.frameDelay > 0; Game.frameDelay--) Game.logic();
-	Game.time = now;
-	
-	/* Draw a new frame. */
-	Game.draw();
-	
-	/* Call the loop again after one frame. */
-	setTimeout(Game.loop, 1000/Game.fps);
-}
-
-/******************************************************************************
  * Game Logic
  *****************************************************************************/
 /**
@@ -139,6 +117,28 @@ Game.draw = function() {
 	/* Compute the game's actual drawn frames per second. */
 	Game.dfps = 1/(1/Game.dfps + 0.001/Game.fps*(Date.now() - Game.drawTime - 1000/Game.dfps));
 	Game.drawTime = Date.now();
+}
+
+/******************************************************************************
+ * Game Loop
+ *****************************************************************************/
+/**
+ * This function performs the main loop of the game and ensures that the game's logic accounts for the actual fps.
+ * @function
+ */
+Game.loop = function() {
+	/* Perform game logic and catch up on any missed logic frames. */
+	Game.logic();
+	const now = Date.now();
+	Game.frameDelay += (now - Game.time)*Game.fps/1000 - 1;
+	for ({}; Game.frameDelay > 0; Game.frameDelay--) Game.logic();
+	Game.time = now;
+	
+	/* Draw a new frame. */
+	Game.draw();
+	
+	/* Call the loop again after one frame. */
+	setTimeout(Game.loop, 1000/Game.fps);
 }
 
 /******************************************************************************
