@@ -14,7 +14,7 @@ let Game = {};
  * The version number of Idle Adventure.
  * @type {number}
  */
-Game.version = 0.100;
+Game.version = 0.105;
 
 /**
  * The target fps at which to run the game.
@@ -81,6 +81,7 @@ function appendNewElement(node, tagName, callback) {
  *****************************************************************************/
 /**
  * This function loads save data.
+ * Called by {@link Game.init}.
  * @function
  */
 Game.load = function() {
@@ -98,11 +99,12 @@ Game.save = function() {
  *****************************************************************************/
 /**
  * This function performs the logic operations of the game.
+ * Called by {@link Game.loop}.
  * @function
  */
 Game.logic = function() {
 	/* Compute the game's actual logic frames per second. */
-	Game.lfps = 1/(1/Game.lfps + 0.001/Game.fps*(Date.now() - Game.logicTime - 1000/Game.lfps));
+	Game.lfps = 1/(1/Game.lfps + 0.001/Game.lfps*(Date.now() - Game.logicTime - 1000/Game.lfps));
 	Game.logicTime = Date.now();
 }
 
@@ -111,11 +113,12 @@ Game.logic = function() {
  *****************************************************************************/
 /**
  * This function draws the game.
+ * Called by {@link Game.loop}.
  * @function
  */
 Game.draw = function() {
 	/* Compute the game's actual drawn frames per second. */
-	Game.dfps = 1/(1/Game.dfps + 0.001/Game.fps*(Date.now() - Game.drawTime - 1000/Game.dfps));
+	Game.dfps = 1/(1/Game.dfps + 0.001/Game.dfps*(Date.now() - Game.drawTime - 1000/Game.dfps));
 	Game.drawTime = Date.now();
 }
 
@@ -124,6 +127,7 @@ Game.draw = function() {
  *****************************************************************************/
 /**
  * This function performs the main loop of the game and ensures that the game's logic accounts for the actual fps.
+ * Called by {@link Game.init} and {@link Game.loop}.
  * @function
  */
 Game.loop = function() {
@@ -145,7 +149,8 @@ Game.loop = function() {
  * Initializer
  *****************************************************************************/
 /**
- * This function initializes Idle Adventure by recreating the webpage, adding event listeners, and calling Game.loop().
+ * This function initializes Idle Adventure by recreating the webpage, adding event listeners, and calling {@link Game.loop} for the first time.
+ * Called once the window is loaded.
  * @function
  */
 Game.init = function() {
@@ -185,27 +190,33 @@ Game.init = function() {
 	/* Load save data */
 	Game.load();
 	
-	/* Initialize timing variables. */
+	/* Initialize variables. */
+	
 	/** The amount of frames behind the game's logic currently is. Updated by {@link Game.loop}.
 	 * @type {number}
 	 */
 	Game.frameDelay = 0;
+	
 	/** The current in-game time, as a Unix timestamp. This should be approximately equal to the real time. Updated by {@link Game.loop}.
 	 * @type {number}
 	 */
 	Game.time = Date.now();
+	
 	/** The last time, as a Unix timestamp, that Game.logic() was called. Updated by {@link Game.logic}.
 	 * @type {number}
 	 */
 	Game.logicTime = Date.now();
+	
 	/** The last time, as a Unix timestamp, that Game.draw() was called. Updated by {@link Game.draw}.
 	 * @type {number}
 	 */
 	Game.drawTime = Date.now();
+	
 	/** The game's actual logic frames per second. Updated by {@link Game.logic}.
 	 * @type {number}
 	 */
 	Game.lfps = Game.fps;
+	
 	/** The game's actual drawn frames per second. Updated by {@link Game.draw}.
 	 * @type {number}
 	 */
