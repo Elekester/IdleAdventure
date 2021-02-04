@@ -27,7 +27,7 @@
 			"name": "Idle Adventure Documentation",
 			"title": "Idle Adventure - ",
 			"css": "custom.css",
-			"navLinks": [ {
+			"navLinks": [{
 				"label": "Idle Adventure",
 				"href": "../index.html"
 			}, {
