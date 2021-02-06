@@ -14,19 +14,13 @@ let Game = {};
  * The version number of Idle Adventure.
  * @type {number}
  */
-Game.version = 0.108;
+Game.version = 0.109;
 
 /**
  * The target fps at which to run the game.
  * @type {number}
  */
 Game.fps = 30;
-
-/**
- * A constant used in computing the game's actual fps. This is used to compute the (N = Game.fps)-EMA of the game's spf.
- * @type {number}
- */
-Game.alph = 2/(Game.fps+1) / 1000;
 
 /******************************************************************************
  * Global Functions
@@ -110,7 +104,7 @@ Game.save = function() {
  */
 Game.logic = function() {
 	/* Compute the game's actual logic frames per second. */
-	Game.lfps = 1/(1/Game.lfps + Game.alph*(Date.now() - Game.logicTime - 1000/Game.lfps));
+	Game.logicCount++;
 	Game.logicTime = Date.now();
 }
 
@@ -124,7 +118,7 @@ Game.logic = function() {
  */
 Game.draw = function() {
 	/* Compute the game's actual drawn frames per second. */
-	Game.dfps = 1/(1/Game.dfps + Game.alph*(Date.now() - Game.drawTime - 1000/Game.dfps));
+	Game.drawCount++;
 	Game.drawTime = Date.now();
 }
 
@@ -197,6 +191,7 @@ Game.init = function() {
 	Game.load();
 	
 	/* Initialize variables. */
+	Game.startTime = Date.now();
 	
 	/** The amount of frames behind the game's logic currently is. Updated by {@link Game.loop}.
 	 * @type {number}
@@ -206,27 +201,27 @@ Game.init = function() {
 	/** The current in-game time, as a Unix timestamp. This should be approximately equal to the real time. Updated by {@link Game.loop}.
 	 * @type {number}
 	 */
-	Game.time = Date.now();
+	Game.time = Game.startTime;
 	
 	/** The last time, as a Unix timestamp, that Game.logic() was called. Updated by {@link Game.logic}.
 	 * @type {number}
 	 */
-	Game.logicTime = Date.now();
+	Game.logicTime = Game.startTime;
 	
 	/** The last time, as a Unix timestamp, that Game.draw() was called. Updated by {@link Game.draw}.
 	 * @type {number}
 	 */
-	Game.drawTime = Date.now();
+	Game.drawTime = Game.startTime;
 	
-	/** The game's actual logic frames per second. Updated by {@link Game.logic}.
+	/** How many times {@link Game.logic} has been called. Updated by {@link Game.logic}.
 	 * @type {number}
 	 */
-	Game.lfps = Game.fps;
+	Game.logicCount = 0;
 	
-	/** The game's actual drawn frames per second. Updated by {@link Game.draw}.
+	/** How many times {@link Game.draw} has been called. Updated by {@link Game.draw}.
 	 * @type {number}
 	 */
-	Game.dfps = Game.fps;
+	Game.drawCount = 0;
 	
 	/* Start the game loop. */
 	Game.loop();
