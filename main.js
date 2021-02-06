@@ -155,7 +155,7 @@ Game.loop = function() {
  */
 Game.init = function() {
 	/* Remove the 'load' event listener from window. */
-	window.removeEventListener('load', Game.init);
+	window.removeEventListener('DOMContentLoaded', Game.init);
 	
 	/* Logs to the console. */
 	console.log('Howdy, I hope you\'ve enjoyed my game!');
@@ -230,4 +230,4 @@ Game.init = function() {
 	Game.loop();
 }
 
-window.addEventListener('load', Game.init);
+window.addEventListener('DOMContentLoaded', Game.init);
