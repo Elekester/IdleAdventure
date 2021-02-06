@@ -14,7 +14,7 @@ let Game = {};
  * The version number of Idle Adventure.
  * @type {number}
  */
-Game.version = 0.109;
+Game.version = 0.110;
 
 /**
  * The target fps at which to run the game.
@@ -191,32 +191,35 @@ Game.init = function() {
 	Game.load();
 	
 	/* Initialize variables. */
-	Game.startTime = Date.now();
-	
-	/** The amount of frames behind the game's logic currently is. Updated by {@link Game.loop}.
+	/** The time at which the game was loaded, as a Unix timestamp.
 	 * @type {number}
 	 */
-	Game.frameDelay = 0;
+	Game.startTime = Date.now();
 	
 	/** The current in-game time, as a Unix timestamp. This should be approximately equal to the real time. Updated by {@link Game.loop}.
 	 * @type {number}
 	 */
 	Game.time = Game.startTime;
 	
+	/** The amount of frames behind the game's logic currently is. Updated by {@link Game.loop}.
+	 * @type {number}
+	 */
+	Game.frameDelay = 0;
+	
 	/** The last time, as a Unix timestamp, that Game.logic() was called. Updated by {@link Game.logic}.
 	 * @type {number}
 	 */
 	Game.logicTime = Game.startTime;
 	
-	/** The last time, as a Unix timestamp, that Game.draw() was called. Updated by {@link Game.draw}.
-	 * @type {number}
-	 */
-	Game.drawTime = Game.startTime;
-	
 	/** How many times {@link Game.logic} has been called. Updated by {@link Game.logic}.
 	 * @type {number}
 	 */
 	Game.logicCount = 0;
+	
+	/** The last time, as a Unix timestamp, that Game.draw() was called. Updated by {@link Game.draw}.
+	 * @type {number}
+	 */
+	Game.drawTime = Game.startTime;
 	
 	/** How many times {@link Game.draw} has been called. Updated by {@link Game.draw}.
 	 * @type {number}
