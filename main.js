@@ -14,7 +14,7 @@ let Game = {};
  * The version number of Idle Adventure.
  * @type {number}
  */
-Game.version = 0.105;
+Game.version = 0.106;
 
 /**
  * The target fps at which to run the game.
@@ -65,13 +65,13 @@ function sample(arr, n, rep) {
  * This function creates an HTML element and appends it to another.
  * @param {HTMLElement} node - The parent node.
  * @param {string} tagName - Specifies the type of element to be created.
- * @param {function} callback - A function to be called after creating the element, but before appending the element. 'this' is bound to the child element in the callback.
+ * @param {function} callback - A function to be called after creating the element, but before appending the element. It will be passed the element.
  * @returns {HTMLElement} The node of the appended element.
  */
 function appendNewElement(node, tagName, callback) {
 	callback ??= function() {};
 	let elem = document.createElement(tagName);
-	callback.bind(elem)();
+	callback(elem);
 	node.appendChild(elem);
 	return node.lastChild;
 }
@@ -168,22 +168,22 @@ Game.init = function() {
 	let frag = document.createDocumentFragment();
 	
 	/* Create the menu. */
-	let menu = appendNewElement(frag, 'div', function() {this.id = 'menu'; this.className = 'right';});
+	let menu = appendNewElement(frag, 'div', elem => {elem.id = 'menu'; elem.className = 'right';});
 	
-	let store = appendNewElement(menu, 'div', function() {this.id = 'store';});
-	appendNewElement(store, 'div', function() {this.className = 'titleCentered'; this.textContent = 'Heroes'});
-	appendNewElement(store, 'div', function() {this.id = 'heroesStoreAnchor';});
-	appendNewElement(menu, 'div', function() {this.className = 'bottomPadding'});
+	let store = appendNewElement(menu, 'div', elem => {elem.id = 'store';});
+	appendNewElement(store, 'div', elem => {elem.className = 'titleCentered'; elem.textContent = 'Heroes'});
+	appendNewElement(store, 'div', elem => {elem.id = 'heroesStoreAnchor';});
+	appendNewElement(menu, 'div', elem => {elem.className = 'bottomPadding'});
 	
 	/* Create the main field. */
-	let field = appendNewElement(frag, 'div', function() {this.id = 'field'; this.className = 'middle';});
-	appendNewElement(field, 'div', function() {this.id = 'buffsAnchor';});
+	let field = appendNewElement(frag, 'div', elem => {elem.id = 'field'; elem.className = 'middle';});
+	appendNewElement(field, 'div', elem => {elem.id = 'buffsAnchor';});
 	
 	e('game').appendChild(frag);
 	
 	/* Test elements */
-	for (let i = 0; i < 10; i++) {appendNewElement(e('heroesStoreAnchor'), 'div', function() {this.textContent = i;})};
-	for (let i = 0; i < 10; i++) {appendNewElement(e('buffsAnchor'), 'div', function() {this.textContent = i;})};
+	for (let i = 0; i < 10; i++) {appendNewElement(e('heroesStoreAnchor'), 'div', elem => {elem.textContent = i;})};
+	for (let i = 0; i < 10; i++) {appendNewElement(e('buffsAnchor'), 'div', elem => {elem.textContent = i;})};
 	
 	/* Add event listeners. */
 	
