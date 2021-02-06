@@ -22,6 +22,8 @@ Game.version = 0.106;
  */
 Game.fps = 30;
 
+Game.alph = 0.002/(Game.fps+1)
+
 /******************************************************************************
  * Global Functions
  *
@@ -104,7 +106,7 @@ Game.save = function() {
  */
 Game.logic = function() {
 	/* Compute the game's actual logic frames per second. */
-	Game.lfps = 1/(1/Game.lfps + 0.001/Game.lfps*(Date.now() - Game.logicTime - 1000/Game.lfps));
+	Game.lfps = 1/(1/Game.lfps + Game.alph*(Date.now() - Game.logicTime - 1000/Game.lfps));
 	Game.logicTime = Date.now();
 }
 
@@ -118,7 +120,7 @@ Game.logic = function() {
  */
 Game.draw = function() {
 	/* Compute the game's actual drawn frames per second. */
-	Game.dfps = 1/(1/Game.dfps + 0.001/Game.dfps*(Date.now() - Game.drawTime - 1000/Game.dfps));
+	Game.dfps = 1/(1/Game.dfps + Game.alph*(Date.now() - Game.drawTime - 1000/Game.dfps));
 	Game.drawTime = Date.now();
 }
 
