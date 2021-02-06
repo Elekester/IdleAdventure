@@ -14,7 +14,7 @@ let Game = {};
  * The version number of Idle Adventure.
  * @type {number}
  */
-Game.version = 0.106;
+Game.version = 0.108;
 
 /**
  * The target fps at which to run the game.
@@ -22,7 +22,11 @@ Game.version = 0.106;
  */
 Game.fps = 30;
 
-Game.alph = 0.002/(Game.fps+1)
+/**
+ * A constant used in computing the game's actual fps. This is used to compute the (N = Game.fps)-EMA of the game's spf.
+ * @type {number}
+ */
+Game.alph = 2/(Game.fps+1) / 1000;
 
 /******************************************************************************
  * Global Functions
