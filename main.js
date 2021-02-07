@@ -14,7 +14,7 @@ let Game = {};
  * The version number of Idle Adventure.
  * @type {number}
  */
-Game.version = 0.110;
+Game.version = 0.112;
 
 /**
  * The target fps at which to run the game.
@@ -77,7 +77,7 @@ function appendNewElement(node, tagName, callback) {
 }
 
 /******************************************************************************
- * Game
+ * Game Save Data
  *****************************************************************************/
 /**
  * This function loads save data.
@@ -103,7 +103,7 @@ Game.save = function() {
  * @function
  */
 Game.logic = function() {
-	/* Compute the game's actual logic frames per second. */
+	/* Update logic variables. */
 	Game.logicCount++;
 	Game.logicTime = Date.now();
 }
@@ -117,7 +117,7 @@ Game.logic = function() {
  * @function
  */
 Game.draw = function() {
-	/* Compute the game's actual drawn frames per second. */
+	/* Update draw variables. */
 	Game.drawCount++;
 	Game.drawTime = Date.now();
 }
@@ -178,6 +178,8 @@ Game.init = function() {
 	/* Create the main field. */
 	let field = appendNewElement(frag, 'div', elem => {elem.id = 'field'; elem.className = 'middle';});
 	appendNewElement(field, 'div', elem => {elem.id = 'buffsAnchor';});
+	appendNewElement(field, 'div', elem => {elem.id = 'hordeAnchor';});
+	appendNewElement(field, 'div', elem => {elem.id = 'heroesAnchor';});
 	
 	e('game').appendChild(frag);
 	

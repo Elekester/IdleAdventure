@@ -214,7 +214,7 @@ a:hover > img, a:active > img {
 #gameLoading {
 	position: absolute;
 	left: 50%;
-	transform: translate(-50%, 0);
+	transform: translate(-50%);
 	max-width: 60ch;
 }
 
@@ -251,6 +251,27 @@ a:hover > img, a:active > img {
 	margin: 3.5px;
 	background: red;
 	box-shadow: 0 0 10px 5px var(--fg) inset;
+}
+
+#hordeAnchor {
+	position: absolute;
+	top: 60.5px;
+	left: 50%;
+	transform: translate(-50%);
+	width: 400px;
+	height: 200px;
+	background: blue;
+}
+
+#heroesAnchor {
+	position: absolute;
+	bottom: 60.5px;
+	left: 50%;
+	transform: translate(-50%);
+	z-index: 1;
+	width: 400px;
+	height: 200px;
+	background: green;
 }
 
 /******************************************************************************
