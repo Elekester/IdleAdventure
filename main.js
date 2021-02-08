@@ -14,7 +14,7 @@ let Game = {};
  * The version number of Idle Adventure.
  * @type {number}
  */
-Game.version = 0.115;
+Game.version = 0.116;
 
 /**
  * The target fps at which to run the game.
@@ -48,9 +48,7 @@ function removeChildren(node) {if (typeof node === 'string') node = e(node); whi
  * @param {boolean} [rep=false] - Sample with replacement (true) or without (false).
  * @returns {Array} A random sample of arr with sample size n.
  */
-function sample(arr, n, rep) {
-	n ??= 1;
-	rep ??= false;
+function sample(arr, n = 1, rep = false) {
 	let sample = [];
 	if (rep) {for (let i = 0; i < n; i++) {
 		sample.push(arr[Math.floor(Math.random()*arr.length)]);
@@ -68,8 +66,7 @@ function sample(arr, n, rep) {
  * @param {function} [callback=()=>{}] - A function to be called after creating the element, but before appending the element. It will be passed the element.
  * @returns {HTMLElement} The node of the appended element.
  */
-function appendNewElement(node, tagName, callback) {
-	callback ??= () => {};
+function appendNewElement(node, tagName, callback = () => {}) {
 	let elem = document.createElement(tagName);
 	callback(elem);
 	node.appendChild(elem);
