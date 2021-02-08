@@ -6,6 +6,7 @@
  *****************************************************************************/
 
 :root {
+	--bgLight: rgb(127, 123, 119);
 	--bg: rgb(31, 27, 23);
 	--bgDark: rgb(15, 11, 7);
 	--fg: rgb(239, 235, 231);
@@ -308,8 +309,8 @@ a:hover > img, a:active > img {
 
 #nav {
 	margin: 3.5px;
-	background-color: var(--bgDark);
-	box-shadow: 0 0 3px 0 black;
+	background-color: var(--bgLight);
+	box-shadow: 0 0 3px 0 transparent inset;
 	max-width: 393px;
 }
 
