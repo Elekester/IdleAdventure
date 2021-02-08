@@ -182,7 +182,7 @@ Game.init = function() {
 	appendNewElement(menuOptions, 'div', elem => {});
 	
 	let menuInfo = appendNewElement(menu, 'div', elem => {elem.id = 'menuInfo';});
-	appendNewElement(menuInfo, 'div', elem => {elem.textContent = 'Idle Adventure'});
+	appendNewElement(menuInfo, 'div', elem => {elem.textContent = 'Idle Adventure is an open-source idle/clicker game for your web browser.'});
 	
 	appendNewElement(menu, 'div', elem => {elem.className = 'bottomPadding open';});
 	
