@@ -14,7 +14,7 @@ let Game = {};
  * The version number of Idle Adventure.
  * @type {number}
  */
-Game.version = 0.114;
+Game.version = 0.115;
 
 /**
  * The target fps at which to run the game.
@@ -65,11 +65,11 @@ function sample(arr, n, rep) {
  * This function creates an HTML element and appends it to another.
  * @param {HTMLElement} node - The parent node.
  * @param {string} tagName - Specifies the type of element to be created.
- * @param {function} callback - A function to be called after creating the element, but before appending the element. It will be passed the element.
+ * @param {function} [callback=()=>{}] - A function to be called after creating the element, but before appending the element. It will be passed the element.
  * @returns {HTMLElement} The node of the appended element.
  */
 function appendNewElement(node, tagName, callback) {
-	callback ??= function() {};
+	callback ??= () => {};
 	let elem = document.createElement(tagName);
 	callback(elem);
 	node.appendChild(elem);
