@@ -232,4 +232,5 @@ Game.init = function() {
 	Game.loop();
 }
 
-window.addEventListener('DOMContentLoaded', Game.init);
+if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', Game.init);
+else Game.init();
