@@ -310,7 +310,7 @@ a:hover > img, a:active > img {
 #nav {
 	margin: 3.5px;
 	background-color: var(--bgLight);
-	box-shadow: 0 0 3px 0 var(--bgDark);
+	box-shadow: 0 0 3px 0 var(--bgLight);
 	max-width: 393px;
 }
 
