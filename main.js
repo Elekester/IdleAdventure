@@ -14,7 +14,7 @@ let Game = {};
  * The version number of Idle Adventure.
  * @type {number}
  */
-Game.version = 0.112;
+Game.version = 0.114;
 
 /**
  * The target fps at which to run the game.
@@ -155,7 +155,7 @@ Game.loop = function() {
  */
 Game.init = function() {
 	/* Remove the 'load' event listener from window. */
-	window.removeEventListener('DOMContentLoaded', Game.init);
+	document.removeEventListener('DOMContentLoaded', Game.init);
 	
 	/* Logs to the console. */
 	console.log('Howdy, I hope you\'ve enjoyed my game!');
