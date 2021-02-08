@@ -14,7 +14,7 @@ let Game = {};
  * The version number of Idle Adventure.
  * @type {number}
  */
-Game.version = 0.116;
+Game.version = 0.117;
 
 /**
  * The target fps at which to run the game.
@@ -147,7 +147,7 @@ Game.loop = function() {
  *****************************************************************************/
 /**
  * This function initializes Idle Adventure by recreating the webpage, adding event listeners, and calling {@link Game.loop} for the first time.
- * Called once the window is loaded.
+ * Called once the document is loaded.
  * @function
  */
 Game.init = function() {
@@ -168,7 +168,7 @@ Game.init = function() {
 	let menu = appendNewElement(frag, 'div', elem => {elem.id = 'menu'; elem.className = 'right';});
 	
 	let store = appendNewElement(menu, 'div', elem => {elem.id = 'store';});
-	appendNewElement(store, 'div', elem => {elem.className = 'titleCentered'; elem.textContent = 'Heroes'});
+	appendNewElement(store, 'div', elem => {elem.className = 'titleCentered'; elem.textContent = 'Heroes';});
 	appendNewElement(store, 'div', elem => {elem.id = 'heroesStoreAnchor';});
 	appendNewElement(menu, 'div', elem => {elem.className = 'bottomPadding'});
 	
