@@ -7,6 +7,7 @@
 
 :root {
 	--bg: rgb(31, 27, 23);
+	--bgDark: rgb(15, 11, 7);
 	--fg: rgb(239, 235, 231);
 	--fgNotice: rgb(255, 251, 247);
 	--fgWarn: rgb(239, 63, 63);
@@ -109,10 +110,17 @@ a:hover > img, a:active > img {
 
 .title::after, .titleCentered::after, .title::before, .titleCentered::before {
 	content: '';
-	margin: 0.25em 0;
 	width: 100%;
 	height: 1px;
 	display: block;
+}
+
+.title::before, .titleCentered::before {
+	margin: 0 0 0.25em 0;
+}
+
+.title::after, .titleCentered::after {
+	margin: 0.25em 0 0 0;
 }
 
 .titleCentered::after, .titleCentered::before {
@@ -279,17 +287,64 @@ a:hover > img, a:active > img {
  *****************************************************************************/
 
 #menu {
+	width: 400px;
 	height: 100%;
 	overflow-x: hidden;
 	overflow-y: auto;
 	box-shadow: 0 0 3px 0 var(--fg) inset;
 }
 
+#menu > div:not(.open) {
+	display: none;
+}
+
+#menu > div.open {
+	width: 100%;
+}
+
+/******************************************************************************
+ * game Div > menu Div > nav Div
+ *****************************************************************************/
+
+#nav {
+	margin: 3.5px;
+	background-color: var(--bgDark);
+	box-shadow: 0 0 3px 0 black;
+	max-width: 393px;
+}
+
+#navAnchor {
+	position: relative;
+	left: 50%;
+	transform: translate(-50%);
+	max-width: 393px;
+	display: inline-block;
+}
+
+#navAnchor > div {
+	cursor: pointer;
+	float: left;
+	padding: 7px;
+	font-size: 26px;
+	color: var(--fgNotice);
+	text-shadow: 0 0 0.25em var(--fg);
+	opacity: 0.5;
+}
+
+#navAnchor > div.active {
+	opacity: 1;
+}
+
+#navAnchor > div:hover:not(.active) {
+	opacity: 0.75;
+}
+
 /******************************************************************************
  * game Div > menu Div > store Div
  *****************************************************************************/
 
-#store {
+#menuStore {
+	width: 100%;
 }
 
 #heroesStoreAnchor {
@@ -305,4 +360,19 @@ a:hover > img, a:active > img {
 #heroesStoreAnchor > div:hover {
 	background: pink;
 	box-shadow: 0 0 0 3px var(--fg) inset;
+}
+
+/******************************************************************************
+ * game Div > menu Div > options Div
+ *****************************************************************************/
+#menuOptions {
+	width: 100%;
+}
+
+/******************************************************************************
+ * game Div > menu Div > info Div
+ *****************************************************************************/
+#menuInfo {
+	width: 100%;
+	padding: 7px;
 }

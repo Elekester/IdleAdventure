@@ -125,7 +125,7 @@ let Game = {};
  * The version number of Idle Adventure.
  * @type {number}
  */
-Game.version = 0.105;
+Game.version = 0.118;
 
 /**
  * The target fps at which to run the game.
@@ -159,9 +159,7 @@ function removeChildren(node) {if (typeof node === 'string') node = e(node); whi
  * @param {boolean} [rep=false] - Sample with replacement (true) or without (false).
  * @returns {Array} A random sample of arr with sample size n.
  */
-function sample(arr, n, rep) {
-	n ??= 1;
-	rep ??= false;
+function sample(arr, n = 1, rep = false) {
 	let sample = [];
 	if (rep) {for (let i = 0; i &lt; n; i++) {
 		sample.push(arr[Math.floor(Math.random()*arr.length)]);
@@ -176,19 +174,18 @@ function sample(arr, n, rep) {
  * This function creates an HTML element and appends it to another.
  * @param {HTMLElement} node - The parent node.
  * @param {string} tagName - Specifies the type of element to be created.
- * @param {function} callback - A function to be called after creating the element, but before appending the element. 'this' is bound to the child element in the callback.
+ * @param {function} [callback=()=>{}] - A function to be called after creating the element, but before appending the element. It will be passed the element.
  * @returns {HTMLElement} The node of the appended element.
  */
-function appendNewElement(node, tagName, callback) {
-	callback ??= function() {};
+function appendNewElement(node, tagName, callback = () => {}) {
 	let elem = document.createElement(tagName);
-	callback.bind(elem)();
+	callback(elem);
 	node.appendChild(elem);
 	return node.lastChild;
 }
 
 /******************************************************************************
- * Game
+ * Game Save Data
  *****************************************************************************/
 /**
  * This function loads save data.
@@ -214,8 +211,8 @@ Game.save = function() {
  * @function
  */
 Game.logic = function() {
-	/* Compute the game's actual logic frames per second. */
-	Game.lfps = 1/(1/Game.lfps + 0.001/Game.lfps*(Date.now() - Game.logicTime - 1000/Game.lfps));
+	/* Update logic variables. */
+	Game.logicCount++;
 	Game.logicTime = Date.now();
 }
 
@@ -228,8 +225,8 @@ Game.logic = function() {
  * @function
  */
 Game.draw = function() {
-	/* Compute the game's actual drawn frames per second. */
-	Game.dfps = 1/(1/Game.dfps + 0.001/Game.dfps*(Date.now() - Game.drawTime - 1000/Game.dfps));
+	/* Update draw variables. */
+	Game.drawCount++;
 	Game.drawTime = Date.now();
 }
 
@@ -261,12 +258,12 @@ Game.loop = function() {
  *****************************************************************************/
 /**
  * This function initializes Idle Adventure by recreating the webpage, adding event listeners, and calling {@link Game.loop} for the first time.
- * Called once the window is loaded.
+ * Called once the document is loaded.
  * @function
  */
 Game.init = function() {
 	/* Remove the 'load' event listener from window. */
-	window.removeEventListener('load', Game.init);
+	document.removeEventListener('DOMContentLoaded', Game.init);
 	
 	/* Logs to the console. */
 	console.log('Howdy, I hope you\'ve enjoyed my game!');
@@ -279,65 +276,112 @@ Game.init = function() {
 	let frag = document.createDocumentFragment();
 	
 	/* Create the menu. */
-	let menu = appendNewElement(frag, 'div', function() {this.id = 'menu'; this.className = 'right';});
+	let menu = appendNewElement(frag, 'div', elem => {elem.id = 'menu'; elem.className = 'right';});
 	
-	let store = appendNewElement(menu, 'div', function() {this.id = 'store';});
-	appendNewElement(store, 'div', function() {this.className = 'titleCentered'; this.textContent = 'Heroes'});
-	appendNewElement(store, 'div', function() {this.id = 'heroesStoreAnchor';});
-	appendNewElement(menu, 'div', function() {this.className = 'bottomPadding'});
+	let nav = appendNewElement(menu, 'div', elem => {elem.id = 'nav'; elem.classList.add('open');});
+	let navAnchor = appendNewElement(nav, 'div', elem => {elem.id = 'navAnchor';});
+	appendNewElement(navAnchor, 'div', elem => {elem.id = 'navStore'; elem.dataset.menu = 'menuStore'; elem.textContent = 'Store'; elem.classList.add('active');});
+	appendNewElement(navAnchor, 'div', elem => {elem.id = 'navOptions'; elem.dataset.menu = 'menuOptions'; elem.textContent = 'Options';});
+	appendNewElement(navAnchor, 'div', elem => {elem.id = 'navInfo'; elem.dataset.menu = 'menuInfo'; elem.textContent = 'Info';});
+	
+	let menuStore = appendNewElement(menu, 'div', elem => {elem.id = 'menuStore'; elem.classList.add('open');});
+	appendNewElement(menuStore, 'div', elem => {elem.className = 'titleCentered'; elem.textContent = 'Heroes';});
+	appendNewElement(menuStore, 'div', elem => {elem.id = 'heroesStoreAnchor';});
+	
+	let menuOptions = appendNewElement(menu, 'div', elem => {elem.id = 'menuOptions';});
+	appendNewElement(menuOptions, 'div', elem => {elem.className = 'titleCentered'; elem.textContent = 'Settings';});
+	appendNewElement(menuOptions, 'div', elem => {});
+	
+	let menuInfo = appendNewElement(menu, 'div', elem => {elem.id = 'menuInfo';});
+	appendNewElement(menuInfo, 'div', elem => {elem.textContent = 'Idle Adventure'});
+	
+	appendNewElement(menu, 'div', elem => {elem.className = 'bottomPadding open';});
+	
+	/* Add Event Listeners for the nav menu. */
+	let navElements = Array.from(navAnchor.children);
+	let menuItems = Array.from(menu.children).slice(1,-1);
+	
+	/**
+	 * This function makes 'this' div in the menu nav acitve and makes the other divs inactive. It then displays the correct menu.
+	 * It is added to each div in the menu nav as a listener for when the div is clicked.
+	 * @function
+	 */
+	Game.clickNavButton = function () {
+		if (this.classList.contains('active')) {}
+		else {
+			/* Remove and add active class from nav elements. */
+			for (elem in navElements) {navElements[elem].classList.remove('active');};
+			this.classList.add('active');
+			
+			/* Remove and add open class from menu items. */
+			for (elem in menuItems) {
+				if (menuItems[elem].id === this.dataset.menu) menuItems[elem].classList.add('open');
+				else menuItems[elem].classList.remove('open');
+			}
+		}
+	}
+	
+	for (elem in navElements) {
+		navElements[elem].addEventListener('click', Game.clickNavButton);
+	}
 	
 	/* Create the main field. */
-	let field = appendNewElement(frag, 'div', function() {this.id = 'field'; this.className = 'middle';});
-	appendNewElement(field, 'div', function() {this.id = 'buffsAnchor';});
+	let field = appendNewElement(frag, 'div', elem => {elem.id = 'field'; elem.className = 'middle';});
+	appendNewElement(field, 'div', elem => {elem.id = 'buffsAnchor';});
+	appendNewElement(field, 'div', elem => {elem.id = 'hordeAnchor';});
+	appendNewElement(field, 'div', elem => {elem.id = 'heroesAnchor';});
 	
 	e('game').appendChild(frag);
 	
 	/* Test elements */
-	for (let i = 0; i &lt; 10; i++) {appendNewElement(e('heroesStoreAnchor'), 'div', function() {this.textContent = i;})};
-	for (let i = 0; i &lt; 10; i++) {appendNewElement(e('buffsAnchor'), 'div', function() {this.textContent = i;})};
-	
-	/* Add event listeners. */
+	for (let i = 0; i &lt; 10; i++) {appendNewElement(e('heroesStoreAnchor'), 'div', elem => {elem.textContent = i;})};
+	for (let i = 0; i &lt; 10; i++) {appendNewElement(e('buffsAnchor'), 'div', elem => {elem.textContent = i;})};
 	
 	/* Load save data */
 	Game.load();
 	
 	/* Initialize variables. */
+	/** The time at which the game was loaded, as a Unix timestamp.
+	 * @type {number}
+	 */
+	Game.startTime = Date.now();
+	
+	/** The current in-game time, as a Unix timestamp. This should be approximately equal to the real time. Updated by {@link Game.loop}.
+	 * @type {number}
+	 */
+	Game.time = Game.startTime;
 	
 	/** The amount of frames behind the game's logic currently is. Updated by {@link Game.loop}.
 	 * @type {number}
 	 */
 	Game.frameDelay = 0;
 	
-	/** The current in-game time, as a Unix timestamp. This should be approximately equal to the real time. Updated by {@link Game.loop}.
-	 * @type {number}
-	 */
-	Game.time = Date.now();
-	
 	/** The last time, as a Unix timestamp, that Game.logic() was called. Updated by {@link Game.logic}.
 	 * @type {number}
 	 */
-	Game.logicTime = Date.now();
+	Game.logicTime = Game.startTime;
+	
+	/** How many times {@link Game.logic} has been called. Updated by {@link Game.logic}.
+	 * @type {number}
+	 */
+	Game.logicCount = 0;
 	
 	/** The last time, as a Unix timestamp, that Game.draw() was called. Updated by {@link Game.draw}.
 	 * @type {number}
 	 */
-	Game.drawTime = Date.now();
+	Game.drawTime = Game.startTime;
 	
-	/** The game's actual logic frames per second. Updated by {@link Game.logic}.
+	/** How many times {@link Game.draw} has been called. Updated by {@link Game.draw}.
 	 * @type {number}
 	 */
-	Game.lfps = Game.fps;
-	
-	/** The game's actual drawn frames per second. Updated by {@link Game.draw}.
-	 * @type {number}
-	 */
-	Game.dfps = Game.fps;
+	Game.drawCount = 0;
 	
 	/* Start the game loop. */
 	Game.loop();
 }
 
-window.addEventListener('load', Game.init);
+if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', Game.init);
+else Game.init();
 </code></pre>
         </article>
     </section>

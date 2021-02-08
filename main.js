@@ -14,7 +14,7 @@ let Game = {};
  * The version number of Idle Adventure.
  * @type {number}
  */
-Game.version = 0.117;
+Game.version = 0.118;
 
 /**
  * The target fps at which to run the game.
@@ -167,10 +167,52 @@ Game.init = function() {
 	/* Create the menu. */
 	let menu = appendNewElement(frag, 'div', elem => {elem.id = 'menu'; elem.className = 'right';});
 	
-	let store = appendNewElement(menu, 'div', elem => {elem.id = 'store';});
-	appendNewElement(store, 'div', elem => {elem.className = 'titleCentered'; elem.textContent = 'Heroes';});
-	appendNewElement(store, 'div', elem => {elem.id = 'heroesStoreAnchor';});
-	appendNewElement(menu, 'div', elem => {elem.className = 'bottomPadding'});
+	let nav = appendNewElement(menu, 'div', elem => {elem.id = 'nav'; elem.classList.add('open');});
+	let navAnchor = appendNewElement(nav, 'div', elem => {elem.id = 'navAnchor';});
+	appendNewElement(navAnchor, 'div', elem => {elem.id = 'navStore'; elem.dataset.menu = 'menuStore'; elem.textContent = 'Store'; elem.classList.add('active');});
+	appendNewElement(navAnchor, 'div', elem => {elem.id = 'navOptions'; elem.dataset.menu = 'menuOptions'; elem.textContent = 'Options';});
+	appendNewElement(navAnchor, 'div', elem => {elem.id = 'navInfo'; elem.dataset.menu = 'menuInfo'; elem.textContent = 'Info';});
+	
+	let menuStore = appendNewElement(menu, 'div', elem => {elem.id = 'menuStore'; elem.classList.add('open');});
+	appendNewElement(menuStore, 'div', elem => {elem.className = 'titleCentered'; elem.textContent = 'Heroes';});
+	appendNewElement(menuStore, 'div', elem => {elem.id = 'heroesStoreAnchor';});
+	
+	let menuOptions = appendNewElement(menu, 'div', elem => {elem.id = 'menuOptions';});
+	appendNewElement(menuOptions, 'div', elem => {elem.className = 'titleCentered'; elem.textContent = 'Settings';});
+	appendNewElement(menuOptions, 'div', elem => {});
+	
+	let menuInfo = appendNewElement(menu, 'div', elem => {elem.id = 'menuInfo';});
+	appendNewElement(menuInfo, 'div', elem => {elem.textContent = 'Idle Adventure'});
+	
+	appendNewElement(menu, 'div', elem => {elem.className = 'bottomPadding open';});
+	
+	/* Add Event Listeners for the nav menu. */
+	let navElements = Array.from(navAnchor.children);
+	let menuItems = Array.from(menu.children).slice(1,-1);
+	
+	/**
+	 * This function makes 'this' div in the menu nav acitve and makes the other divs inactive. It then displays the correct menu.
+	 * It is added to each div in the menu nav as a listener for when the div is clicked.
+	 * @function
+	 */
+	Game.clickNavButton = function () {
+		if (this.classList.contains('active')) {}
+		else {
+			/* Remove and add active class from nav elements. */
+			for (elem in navElements) {navElements[elem].classList.remove('active');};
+			this.classList.add('active');
+			
+			/* Remove and add open class from menu items. */
+			for (elem in menuItems) {
+				if (menuItems[elem].id === this.dataset.menu) menuItems[elem].classList.add('open');
+				else menuItems[elem].classList.remove('open');
+			}
+		}
+	}
+	
+	for (elem in navElements) {
+		navElements[elem].addEventListener('click', Game.clickNavButton);
+	}
 	
 	/* Create the main field. */
 	let field = appendNewElement(frag, 'div', elem => {elem.id = 'field'; elem.className = 'middle';});
@@ -183,8 +225,6 @@ Game.init = function() {
 	/* Test elements */
 	for (let i = 0; i < 10; i++) {appendNewElement(e('heroesStoreAnchor'), 'div', elem => {elem.textContent = i;})};
 	for (let i = 0; i < 10; i++) {appendNewElement(e('buffsAnchor'), 'div', elem => {elem.textContent = i;})};
-	
-	/* Add event listeners. */
 	
 	/* Load save data */
 	Game.load();
