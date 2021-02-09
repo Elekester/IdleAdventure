@@ -309,7 +309,7 @@ a:hover > img, a:active > img {
  *****************************************************************************/
 
 #menu {
-	width: 400px;
+	position: relative;
 	height: 100%;
 	overflow-x: hidden;
 	overflow-y: auto;
@@ -367,7 +367,7 @@ a:hover > img, a:active > img {
  *****************************************************************************/
 
 #menuStore {
-	width: 100%;
+	width: 400px;
 }
 
 #heroesStoreAnchor {
@@ -391,13 +391,13 @@ a:hover > img, a:active > img {
  * game Div > menu Div > options Div
  *****************************************************************************/
 #menuOptions {
-	width: 100%;
+	width: 400px;
 }
 
 /******************************************************************************
  * game Div > menu Div > info Div
  *****************************************************************************/
 #menuInfo {
-	width: 100%;
+	width: 384px;
 	padding: 8px;
 }
