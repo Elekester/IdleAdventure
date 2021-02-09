@@ -125,7 +125,7 @@ let Game = {};
  * The version number of Idle Adventure.
  * @type {number}
  */
-Game.version = 0.118;
+Game.version = 0.121;
 
 /**
  * The target fps at which to run the game.
@@ -293,7 +293,7 @@ Game.init = function() {
 	appendNewElement(menuOptions, 'div', elem => {});
 	
 	let menuInfo = appendNewElement(menu, 'div', elem => {elem.id = 'menuInfo';});
-	appendNewElement(menuInfo, 'div', elem => {elem.textContent = 'Idle Adventure'});
+	appendNewElement(menuInfo, 'div', elem => {elem.textContent = 'Idle Adventure is an open-source idle/clicker game for your web browser.'});
 	
 	appendNewElement(menu, 'div', elem => {elem.className = 'bottomPadding open';});
 	
@@ -328,7 +328,7 @@ Game.init = function() {
 	/* Create the main field. */
 	let field = appendNewElement(frag, 'div', elem => {elem.id = 'field'; elem.className = 'middle';});
 	appendNewElement(field, 'div', elem => {elem.id = 'buffsAnchor';});
-	appendNewElement(field, 'div', elem => {elem.id = 'hordeAnchor';});
+	appendNewElement(field, 'div', elem => {elem.id = 'hordeAnchor'; elem.textContent = 'I\'m the bad guy. Duh.'});
 	appendNewElement(field, 'div', elem => {elem.id = 'heroesAnchor';});
 	
 	e('game').appendChild(frag);
