@@ -37,7 +37,7 @@ body {
 	color: var(--fg);
 	background: var(--bg);
 	font-family: Arial, sans-serif;
-	font-size: 13px;
+	font-size: 1em;
 	line-height: 1;
 }
 
@@ -97,10 +97,10 @@ a:hover > img, a:active > img {
  *****************************************************************************/
 
 .title, .titleCentered {
-	padding-top: 7px;
-	padding-bottom: 7px;
+	padding-top: 8px;
+	padding-bottom: 8px;
 	width: 100%;
-	font-size: 26px;
+	font-size: 2em;
 	color: var(--fgNotice);
 	text-shadow: 0 0 0.25em var(--fg);
 }
@@ -190,15 +190,15 @@ a:hover > img, a:active > img {
 	left: 0;
 	top: 0;
 	width: 100%;
-	height: 27px;
+	height: calc(1em + 16px);
 	overflow: auto;
 	border-bottom: 1px solid var(--bg);
 }
 
 #topBar > div {
-	padding: 7px;
-	height: 13px;
-	box-shadow: 0 0 3px 0 var(--fg) inset;
+	padding: 8px;
+	height: 1em;
+	box-shadow: 0 0 4px 0 var(--fg) inset;
 }
 
 /******************************************************************************
@@ -208,7 +208,7 @@ a:hover > img, a:active > img {
 #game {
 	position: absolute;
 	left: 0;
-	top: 28px;
+	top: calc(1em + 17px);
 	right: 0;
 	bottom: 0;
 	height: auto;
@@ -224,7 +224,7 @@ a:hover > img, a:active > img {
 	position: absolute;
 	left: 50%;
 	transform: translate(-50%);
-	max-width: 60ch;
+	max-width: 60em;
 }
 
 #gameLoadingWarning {
@@ -244,27 +244,30 @@ a:hover > img, a:active > img {
 	position: relative;
 	height: 100%;
 	overflow: hidden;
-	box-shadow: 0 0 3px 0 var(--fg) inset;
+	box-shadow: 0 0 4px 0 var(--fg) inset;
 }
 
 #buffsAnchor {
 	position: absolute;
+	top: 4px;
+	left: 4px;
 	z-index: 1;
-	width: 100%;
+	width: calc(100% - 8px);
 }
 
 #buffsAnchor > div {
 	float: left;
 	width: 50px;
 	height: 50px;
-	margin: 3.5px;
+	margin: 4px;
 	background: red;
-	box-shadow: 0 0 10px 5px var(--fg) inset;
+	background-color: red;
+	box-shadow: 0 0 4px 0 red;
 }
 
 #hordeAnchor {
 	position: absolute;
-	top: 60.5px;
+	top: 66px;
 	left: 50%;
 	transform: translate(-50%);
 	width: 400px;
@@ -274,7 +277,7 @@ a:hover > img, a:active > img {
 
 #heroesAnchor {
 	position: absolute;
-	bottom: 60.5px;
+	bottom: 66px;
 	left: 50%;
 	transform: translate(-50%);
 	z-index: 1;
@@ -292,7 +295,7 @@ a:hover > img, a:active > img {
 	height: 100%;
 	overflow-x: hidden;
 	overflow-y: auto;
-	box-shadow: 0 0 3px 0 var(--fg) inset;
+	box-shadow: 0 0 4px 0 var(--fg) inset;
 }
 
 #menu > div:not(.open) {
@@ -300,7 +303,6 @@ a:hover > img, a:active > img {
 }
 
 #menu > div.open {
-	width: 100%;
 }
 
 /******************************************************************************
@@ -308,26 +310,26 @@ a:hover > img, a:active > img {
  *****************************************************************************/
 
 #nav {
-	margin: 3.5px;
+	margin: 4px;
 	background-color: var(--bgLight);
-	box-shadow: 0 0 3px 0 var(--bgLight);
-	max-width: 393px;
+	box-shadow: 0 0 4px 0 var(--bgLight);
+	width: 392px;
 }
 
 #navAnchor {
 	position: relative;
 	left: 50%;
 	transform: translate(-50%);
-	max-width: 393px;
+	max-width: 392px;
 	display: inline-block;
 }
 
 #navAnchor > div {
 	cursor: pointer;
 	float: left;
-	padding: 7px;
-	width: 100px;
-	font-size: 26px;
+	padding: 8px;
+	width: 114px;
+	font-size: 32px;
 	color: var(--fgNotice);
 	text-shadow: 0 0 0.25em var(--fg);
 	text-align: center;
@@ -354,15 +356,17 @@ a:hover > img, a:active > img {
 }
 
 #heroesStoreAnchor > div {
-	width: 400px;
+	margin: 4px;
+	width: 392px;
 	height: 64px;
 	background: red;
-	box-shadow: 0 0 3px 0 var(--fg) inset;
+	background-color: red;
+	box-shadow: 0 0 4px 0 red;
 }
 
 #heroesStoreAnchor > div:hover {
-	background: pink;
-	box-shadow: 0 0 0 3px var(--fg) inset;
+	background-color: pink;
+	box-shadow: 0 0 4px 0 pink;
 }
 
 /******************************************************************************
@@ -377,5 +381,5 @@ a:hover > img, a:active > img {
  *****************************************************************************/
 #menuInfo {
 	width: 100%;
-	padding: 7px;
+	padding: 8px;
 }
