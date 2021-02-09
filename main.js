@@ -14,7 +14,7 @@ let Game = {};
  * The version number of Idle Adventure.
  * @type {number}
  */
-Game.version = 0.121;
+Game.version = 0.130;
 
 /**
  * The target fps at which to run the game.
@@ -217,8 +217,23 @@ Game.init = function() {
 	/* Create the main field. */
 	let field = appendNewElement(frag, 'div', elem => {elem.id = 'field'; elem.className = 'middle';});
 	appendNewElement(field, 'div', elem => {elem.id = 'buffsAnchor';});
-	appendNewElement(field, 'div', elem => {elem.id = 'hordeAnchor'; elem.textContent = 'I\'m the bad guy. Duh.'});
 	appendNewElement(field, 'div', elem => {elem.id = 'heroesAnchor';});
+	
+	/* Create the horde. */
+	let hordeAnchor = appendNewElement(field, 'div', elem => {elem.id = 'hordeAnchor';});
+	let horde = appendNewElement(hordeAnchor, 'div', elem => {elem.id = 'horde';});
+	let hordeImg = appendNewElement(horde, 'img', elem => {elem.src = 'img/horde-0.png';});
+	
+	/* Add Event Listeners for the horde. */
+	Game.clickHorde = function () {
+		/* Make the Horde bigger for a fraction of a second. */
+		this.style.height = '250px';
+		if (Game.clickHordeTimeout) clearTimeout(Game.clickHordeTimeout);
+		Game.clickHordeTimeout = setTimeout((function() {this.style.height = ''}).bind(this), 100);
+		
+		/* Do something when the Horde is clicked. */
+	}
+	hordeImg.addEventListener('click', Game.clickHorde);
 	
 	e('game').appendChild(frag);
 	

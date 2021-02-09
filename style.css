@@ -270,9 +270,31 @@ a:hover > img, a:active > img {
 	top: 66px;
 	left: 50%;
 	transform: translate(-50%);
-	width: 400px;
+	cursor: pointer;
+}
+
+#hordeAnchor {
+	position: absolute;
+	top: 66px;
+	left: 50%;
+	transform: translate(-50%);
+	height: 250px;
+	cursor: pointer;
+}
+
+#hordeAnchor > #horde {
+	position: absolute;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+#hordeAnchor > #horde > img {
 	height: 200px;
-	background: blue;
+	transition: 0.5s;
+}
+
+#hordeAnchor > #horde > img:hover {
+	height: 210px;
 }
 
 #heroesAnchor {
@@ -280,10 +302,6 @@ a:hover > img, a:active > img {
 	bottom: 66px;
 	left: 50%;
 	transform: translate(-50%);
-	z-index: 1;
-	width: 400px;
-	height: 200px;
-	background: green;
 }
 
 /******************************************************************************
